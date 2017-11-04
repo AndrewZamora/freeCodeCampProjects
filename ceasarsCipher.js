@@ -5,10 +5,26 @@
 // Write a function which takes a ROT13 encoded string as input and returns a decoded string.
 //
 // All letters will be uppercase. Do not transform any non-alphabetic character (i.e. spaces, punctuation), but do pass them on.
-function rot13(str) { 
 
-  return str.charCodeAt(0);
+
+function rot13(str) { 
+var charNum = [];
+for (var i = 0; i < str.length; i++) {
+  charNum.push(str.charCodeAt(i)-13);
+  }
+  
+var res = [];
+for (var j = 0; j < charNum.length; j++) {
+res.push(String.fromCharCode(charNum[j])); 
+}
+console.log(res);
+  return charNum
 }
 
 // Change the inputs below to test
 console.log(rot13("SERR PBQR PNZC"));
+
+// rot13("SERR PBQR PNZC") should decode to "FREE CODE CAMP"
+// rot13("SERR CVMMN!") should decode to "FREE PIZZA!"
+// rot13("SERR YBIR?") should decode to "FREE LOVE?"
+// rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.") should decode to "THE QUICK BROWN DOG JUMPED OVER THE LAZY FOX."
