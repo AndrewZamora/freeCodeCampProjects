@@ -10,7 +10,9 @@
 function rot13(str) { 
 var charNum = [];
 for (var i = 0; i < str.length; i++) {
-  charNum.push(str.charCodeAt(i)-13);
+  if (str.charCodeAt(i)-13 == 70) {
+    charNum.push(str.charCodeAt(i)-13);
+  } 
   }
   
 var res = [];
