@@ -11,19 +11,22 @@ function rot13(str) {
   var charNum = [];
   var result = [];
   for (var i = 0; i < str.length; i++) {
-    if (str.charCodeAt(i) >= 78 && str.charCodeAt(i) - 13 <= 90) {
-      charNum.push(str.charCodeAt(i) - 13);
-    } else if (str.charCodeAt(i) >= 65 && str.charCodeAt(i) - 13 <= 69) {
+      //won't convert any value that aren't A-Z, it will just leave it as is 
+    if (str.charCodeAt(i) < 65 || str.charCodeAt(i) > 90) {
+      charNum.push(str.charCodeAt(i));
+      // A-N, Space and characters like "!" are bumped up 13 spaces on ASCII chart	
+    } else if (str.charCodeAt(i) < 78) {
       charNum.push(str.charCodeAt(i) + 13);
     } else {
-      charNum.push(str.charCodeAt(i));
+      // N-Z (78-90) are moved down 13 spaces on ASCII chart
+      charNum.push(str.charCodeAt(i) - 13);
     }
     result.push(String.fromCharCode(charNum[i]));
   }
   return result.join("");
 }
 
-console.log(rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK."));
+console.log(rot13("SERR PBQR PNZC"));
 // Change the inputs below to test
 // rot13("SERR PBQR PNZC") should decode to "FREE CODE CAMP"
 // rot13("SERR CVMMN!") should decode to "FREE PIZZA!"
