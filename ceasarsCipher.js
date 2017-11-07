@@ -10,10 +10,13 @@
 function rot13(str) {
   var charNum = [];
   for (var i = 0; i < str.length; i++) {
-    if (str.charCodeAt(i) - 13 >= 65 && str.charCodeAt(i) - 13 <= 95 ) {
+    if (str.charCodeAt(i) >= 78 && str.charCodeAt(i) - 13 <= 90) {
       charNum.push(str.charCodeAt(i) - 13);
-    } else{
+    } else if (str.charCodeAt(i) >= 65 && str.charCodeAt(i) - 13 <= 69){
       charNum.push(str.charCodeAt(i) + 13);
+    }
+    else {
+      charNum.push(str.charCodeAt(i));
     }
   }
 
@@ -25,7 +28,7 @@ function rot13(str) {
   return charNum
 }
 
-console.log(rot13("SERR PBQR PNZC"));
+console.log(rot13("SERR CVMMN!"));
 // Change the inputs below to test
 // rot13("SERR PBQR PNZC") should decode to "FREE CODE CAMP"
 // rot13("SERR CVMMN!") should decode to "FREE PIZZA!"
