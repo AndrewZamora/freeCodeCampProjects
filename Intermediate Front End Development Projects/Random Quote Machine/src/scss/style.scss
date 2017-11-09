@@ -8,4 +8,19 @@ body{
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     background: #333;
     color: #fff;
+    p {
+        padding: 10px;
+    }
 }
+#social{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    
+    div{
+        display: flex;
+        width: 100px;
+        justify-content: space-around;
+    }
+}
+
