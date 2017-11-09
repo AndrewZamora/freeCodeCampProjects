@@ -1,0 +1,11 @@
+body {
+  font-family: 'Roboto', sans-serif; }
+
+#container {
+  text-align: center;
+  width: 500px;
+  margin: 200px auto;
+  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  background: #333;
+  color: #fff; }
