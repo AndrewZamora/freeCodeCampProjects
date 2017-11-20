@@ -1,29 +1,9 @@
 body {
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  color: black; }
 
 #container {
-  text-align: center;
+  background: cyan;
+  height: 500px;
   width: 500px;
-  margin: 200px auto;
-  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  background: #333;
-  color: #fff; }
-  #container p {
-    padding: 10px; }
-
-#social {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 10px; }
-  #social div {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100px;
-    -ms-flex-pack: distribute;
-        justify-content: space-around; }
+  margin: 200px auto; }
