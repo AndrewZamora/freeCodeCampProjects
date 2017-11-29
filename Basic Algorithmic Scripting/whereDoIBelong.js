@@ -5,9 +5,8 @@ function getIndexToIns(arr, num) {
   arr.sort(function(a, b) {
     return a - b;
   });
-  //Goes (iterates) through the array
   for (var i = 0; i < arr.length; i++) {
-    //Returns index if array value is greater than or equal to num
+  //Returns index if array value is greater than or equal to num
     if (arr[i] >= num) {
       return arr.indexOf(arr[i]);
     }

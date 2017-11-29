@@ -3,19 +3,18 @@
 // For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
 
 function titleCase(str) {
-  // seperate string into an array
-  str = str.split(" ");
-  // loop through each array item
-  for (var i = 0; i < str.length; i++) {
+    // seperate string into an array
+    arrayOfStr = str.split(" ");
+    // loop through each array item
+  for (var i = 0; i < arrayOfStr.length; i++) {
     // capitalize the first letter of each array item
-    str[i] = str[i][0].toUpperCase() + str[i].slice(1).toLowerCase();
+    arrayOfStr[i] = arrayOfStr[i][0].toUpperCase() + arrayOfStr[i].slice(1).toLowerCase();
     // make sure remaining letters of each item are lowercase and add them to the first letter
   }
-  // combine the array into a string
-  return str.join(" ");
+    // combine the array into a string
+  return arrayOfStr.join(" ");
 }
-
-titleCase("i'm a little tea pot");
+console.log(titleCase("i'm a little tea pot"));
 
 //Test Problems:
 // titleCase("I'm a little tea pot") should return a string.
