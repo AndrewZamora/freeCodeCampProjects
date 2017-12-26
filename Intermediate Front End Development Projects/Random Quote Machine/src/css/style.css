@@ -30,6 +30,8 @@ body {
         justify-content: space-around; }
   #social i {
     cursor: pointer; }
+    #social i:hover {
+      color: #333; }
 
 button {
   cursor: pointer;
@@ -39,3 +41,5 @@ button {
   padding: 8px;
   font-weight: bold;
   border-radius: 5px; }
+  button:hover {
+    background: #333; }

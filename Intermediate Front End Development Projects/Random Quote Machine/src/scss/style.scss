@@ -28,6 +28,9 @@ body{
 
     i{
         cursor: pointer;
+        &:hover {
+            color: #333;
+        }
     }
 }
 
@@ -39,5 +42,8 @@ button{
     padding: 8px;
     font-weight: bold;
     border-radius: 5px;
+    &:hover {
+        background: #333;
+    }
 }
 
