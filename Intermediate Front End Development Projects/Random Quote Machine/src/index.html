@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,27 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
     crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
   <title>Random Quote Machine</title>
 </head>
+
 <body>
   <div id="container">
     <div id="quote-container">
       <i class="fa fa-quote-left"></i>
-      <div id="quote"></div>
+      <div id="spaceForQuote"></div>
       <i class="fa fa-quote-right"></i>
     </div>
     <div id="social">
       <div>
-        <i class="fa fa-twitter"></i>
-        <i class="fa fa-tumblr"></i>
+        <a id="twitter" target="_blank">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a id="tumblr" target="_blank">
+          <i class="fa fa-tumblr"></i>
+        </a>
       </div>
-      <button>New Quote</button>
+      <button id="btn">New Quote</button>
     </div>
   </div>
   <script src="script.js"></script>
