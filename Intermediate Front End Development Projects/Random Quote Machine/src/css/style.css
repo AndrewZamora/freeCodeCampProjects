@@ -1,44 +1,74 @@
-body {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100vh;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding: 0;
-  margin: 0;
-  background: #484848; }
-
-#container {
-  padding: 40px 20px;
-  width: 100%;
+body,
+html {
   background: #212121;
-  color: #ffffff;
-  border-radius: 2.5%; }
+  color: #fff;
+  font-size: 1.3em;
+  padding: 0;
+  margin: 0; }
 
-#social a {
-  background: #484848;
-  margin: 5px;
-  text-decoration: none;
-  padding: 20px;
-  border-radius: 50%;
+#quote-container {
+  margin: 0.5em 0.5em 2em 0.5em; }
+  #quote-container .fa-quote-right {
+    float: right; }
+
+#spaceForQuote p {
+  margin-top: 0; }
+
+#spaceForQuote span {
   color: #1de9b6; }
-  #social a .fa-tumblr {
-    padding: 4px; }
 
-#social button {
-  margin: 20px 0;
-  width: 100%;
-  border-radius: 1.5em;
-  border: none;
-  background: #484848;
-  padding: 10px;
-  color: #1de9b6;
-  cursor: pointer; }
+#social {
+  margin: 0.5em; }
+  #social a {
+    padding: 0.45em;
+    color: #fff;
+    font-size: 1em; }
+    #social a:hover {
+      color: #1de9b6; }
+  #social button {
+    margin-top: 3em;
+    border: none;
+    border-radius: 2em;
+    color: #1de9b6;
+    background: #484848;
+    width: 100%;
+    height: 4em;
+    outline: none;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    font-weight: bold;
+    cursor: pointer; }
+    #social button:hover {
+      color: #fff; }
 
-.fa-quote-right {
-  float: right; }
+@media (min-width: 600px) {
+  body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 100vh;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+  #quote-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  #spaceForQuote p {
+    margin: auto 0.5em; }
+  #social {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    #social div {
+      width: 5em;
+      margin: 0; }
+    #social button {
+      width: 10em;
+      margin: 0 0 0 auto; } }
