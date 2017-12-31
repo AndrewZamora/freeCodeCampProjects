@@ -1,58 +1,44 @@
 body {
-  font-family: 'Roboto', sans-serif;
-  color: black; }
-
-#container {
-  text-align: center;
-  width: 500px;
-  margin: 200px auto;
-  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-          box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  background: #ccc;
-  color: #fff; }
-  #container p {
-    padding: 10px; }
-
-#quote-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; }
-  #quote-container i {
-    padding: 10px; }
+  padding: 0;
+  margin: 0;
+  background: #484848; }
 
-#social {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 10px; }
-  #social div {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100px;
-    -ms-flex-pack: distribute;
-        justify-content: space-around; }
-  #social i {
-    cursor: pointer; }
-    #social i:hover {
-      color: #333; }
+#container {
+  padding: 40px 20px;
+  width: 100%;
+  background: #212121;
+  color: #ffffff;
+  border-radius: 2.5%; }
 
-button {
-  cursor: pointer;
-  background: #fff;
+#social a {
+  background: #484848;
+  margin: 5px;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 50%;
+  color: #1de9b6; }
+  #social a .fa-tumblr {
+    padding: 4px; }
+
+#social button {
+  margin: 20px 0;
+  width: 100%;
+  border-radius: 1.5em;
   border: none;
-  color: #ccc;
-  padding: 8px;
-  font-weight: bold;
-  border-radius: 5px; }
-  button:hover {
-    background: #333; }
+  background: #484848;
+  padding: 10px;
+  color: #1de9b6;
+  cursor: pointer; }
+
+.fa-quote-right {
+  float: right; }

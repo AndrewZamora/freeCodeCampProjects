@@ -1,58 +1,45 @@
-body{
-    font-family: 'Roboto', sans-serif;
-    color: black;
-}
-
-
-#container{
-    text-align: center;
-    width: 500px;
-    margin: 200px auto;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    background: #ccc;
-    color: #fff;
-    p {
-        padding: 10px;
-    }
-}
-
-#quote-container {
+body {
     display: flex;
-    justify-content: center;
     align-items: center;
-    i{
-        padding: 10px;
-    }
+    height: 100vh;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    background: #484848;
 }
-#social{
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    
-    div{
-        display: flex;
-        width: 100px;
-        justify-content: space-around;
-    }
+#container {
+    padding: 40px 20px;
+    width: 100%;
+    background: #212121;
+    color: #ffffff;
+    border-radius: 2.5%;
+}
 
-    i{
-        cursor: pointer;
-        &:hover {
-            color: #333;
+
+#social {
+    a {
+        background:#484848;
+        margin: 5px; 
+        text-decoration: none;
+        padding: 20px;
+        border-radius: 50%;
+        color: #1de9b6;
+        .fa-tumblr{
+            padding: 4px;
         }
     }
-}
-
-button{
-    cursor: pointer;
-    background: #fff;
-    border: none;
-    color: #ccc;
-    padding: 8px;
-    font-weight: bold;
-    border-radius: 5px;
-    &:hover {
-        background: #333;
+    button {
+        margin: 20px 0;
+        width: 100%;
+        border-radius: 1.5em;
+        border: none;
+        background: #484848;
+        padding: 10px;
+        color: #1de9b6;
+        cursor: pointer;
     }
 }
 
+.fa-quote-right {
+    float: right; 
+}
