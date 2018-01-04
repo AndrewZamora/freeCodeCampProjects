@@ -32,21 +32,81 @@ html {
 
 #tribute-info {
   background: #bcbcbc;
-  padding: 0.5em; }
+  padding: 0.5em;
+  font-size: 1.8em; }
   #tribute-info span {
     font-size: 2em; }
 
-#timeline h4 {
-  text-align: center; }
+#timeline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  #timeline h3 {
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 0; }
+  #timeline ul {
+    display: inline-block;
+    list-style: none;
+    text-align: left;
+    margin: 0;
+    padding: 3em 0; }
+    #timeline ul li {
+      padding: 1em 0;
+      font-size: 2em; }
 
-#timeline ul {
-  list-style: none; }
+#card-background {
+  background: #bcbcbc;
+  padding: 4em 0; }
+
+#img-div {
+  margin: auto;
+  width: 80%;
+  background-color: #fff;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+  #img-div p {
+    text-align: left;
+    font-size: 1.5em;
+    padding: 0.3em; }
 
 #image {
-  display: block;
-  margin: auto;
-  max-width: 100%; }
+  width: 100%; }
+
+#img-caption {
+  background: #fff; }
+
+#more-info {
+  text-align: center;
+  padding: 4em; }
+  #more-info p {
+    font-size: 2em; }
+  #more-info button {
+    border: none;
+    cursor: pointer;
+    padding: 2em 4.5em;
+    -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 14px 56px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.22), 0 14px 56px rgba(0, 0, 0, 0.25);
+    background: #333333; }
+    #more-info button:hover a {
+      color: #fff; }
+    #more-info button a {
+      color: #bcbcbc;
+      font-size: 2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.3em; }
 
 footer {
   background: #8c8c8c;
   color: #fff; }
+  footer p {
+    margin: 0;
+    text-align: center; }
