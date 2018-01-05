@@ -15,7 +15,7 @@ html {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 50vh;
+  height: 95vh;
   width: 100%;
   text-transform: uppercase; }
   #banner h1 {
@@ -68,7 +68,7 @@ html {
 
 #img-div {
   margin: auto;
-  width: 80%;
+  width: 70%;
   background-color: #fff;
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
@@ -78,10 +78,13 @@ html {
     padding: 0.3em; }
 
 #image {
-  width: 100%; }
+  max-width: 100%;
+  margin: auto;
+  display: block; }
 
 #img-caption {
-  background: #fff; }
+  background: #fff;
+  margin: auto; }
 
 #more-info {
   text-align: center;

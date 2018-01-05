@@ -15,7 +15,7 @@ img {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 50vh;
+    height: 95vh;
     width: 100%;
     text-transform: uppercase;
     h1 {
@@ -69,7 +69,7 @@ img {
 
 #img-div {
     margin: auto;
-    width: 80%;
+    width: 70%;
     background-color: #fff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     p{
@@ -81,11 +81,14 @@ img {
 
 
 #image {
- width: 100%;
+ max-width: 100%;
+ margin: auto;
+ display: block;
 }
 
 #img-caption {
     background: #fff;
+    margin: auto;
 }
 
 #more-info {
