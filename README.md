@@ -5,4 +5,5 @@ Return Largest Numbers in Arrays- largestNumArray.js
 ## Intermediate Front End Development Projects
 Random Quote Machine
 ## FreeCodeCampBeta
-
+diffTwoArrays.js
+sumAllNumberInARange.js
