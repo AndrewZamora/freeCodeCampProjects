@@ -4,13 +4,15 @@
 // You can return the array with its elements in any order.
 
 function diffArray(arr1, arr2) {
-    var newArr = [];
-    console.log(arr1.indexOf());
-    // Same, same; but different.
-    return newArr;
+  var sortedArr1 = arr1.sort();
+  var sortedArr2 = arr2.sort();
+  var newArr = sortedArr1.filter(removeVal);
+  function removeVal(val) {
+    return sortedArr2.indexOf(val) == -1;
   }
-  
-  diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+  console.log(newArr);
+}
+console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
 
 // diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]) should return an array.
 // ["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"] should return ["pink wool"].
