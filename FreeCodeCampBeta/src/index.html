@@ -13,7 +13,7 @@
     <h1 id="title">This is title</h1>
     <p id="description">This is were the description will be!</p>
     <form action="" id="survey-form">
-         <!-- Get User Name -->
+        <!-- Get User Name -->
         <div>
             <label for="name" id="name-label">Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -26,7 +26,34 @@
         <!-- Get User Age -->
         <div>
             <label for="age" id="number-label">Age:</label>
-            <input type="number" name="number" id="number" placeholder="Age" min="18"max="100" required>
+            <input type="number" name="number" id="number" placeholder="Age" min="18" max="100" required>
+        </div>
+        <!-- Dropdown  -->
+        <div>
+            <p>A random question will be asked here?</p>
+            <select name="dropdown" id="dropdown">
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+                <option value="option3">Option 3</option>
+                <option value="option4">Option 4</option>
+            </select>
+            <!-- Radio Buttons -->
+        </div>
+        <p>Select one of these radio buttons?</p>
+        <input type="radio" name="gender" id="male" value="male"> Male
+        <br>
+        <input type="radio" name="gender" id="female" value="female"> Female
+        <br>
+        <input type="radio" name="gender" id="other" value="male"> Other
+        <br>
+        </div>
+        <!-- Check Boxes -->
+        <div>
+            <p>These boxes will be checked:</p>
+            <input type="checkbox" name="box1" id="box1" value="box1">
+            <label for="box1">Box 1</label>
+            <input type="checkbox" name="box2" id="box2" value="box2">
+            <label for="box2">Box 2</label>
         </div>
     </form>
 
