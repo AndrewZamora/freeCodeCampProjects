@@ -8,7 +8,7 @@ function loadDoc() {
         var response = JSON.parse(xhttp.responseText);
         console.log(response);
         console.log(response["query"]["results"]["channel"]["astronomy"]["sunset"]);
-        document.getElementById("demo").innerHTML = response["query"]["results"]["channel"]["astronomy"]["sunset"];
+        document.getElementById("demo").innerHTML = response["query"]["results"]["channel"]["item"]["condition"]["temp"];
       }
     };
     xhttp.open("GET", url, true);
