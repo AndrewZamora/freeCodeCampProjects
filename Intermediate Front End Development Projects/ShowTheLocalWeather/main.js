@@ -1,18 +1,17 @@
-var url = 'https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast ' +
-'where woeid in (select woeid from geo.places(1) where text="London")&format=json';
+var url = "https://fcc-weather-api.glitch.me/api/current?lon=135.4009&lat= 34.7843";
 
-function loadDoc() {
+// Check to see if the browser supports the GeoLocation API.
+
+function loadData() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         var response = JSON.parse(xhttp.responseText);
-        console.log(response);
-        console.log(response["query"]["results"]["channel"]["astronomy"]["sunset"]);
-        document.getElementById("demo").innerHTML = response["query"]["results"]["channel"]["item"]["condition"]["temp"];
+        console.log(response);      
+        // document.getElementById("demo").innerHTML = ;
       }
     };
     xhttp.open("GET", url, true);
     xhttp.send();
   }
-  loadDoc();
-  
+  loadData();
