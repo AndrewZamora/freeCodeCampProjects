@@ -1,4 +1,4 @@
-
+//Get Position
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(makeUrl);
