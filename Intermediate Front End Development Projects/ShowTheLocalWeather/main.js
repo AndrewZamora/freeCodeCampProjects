@@ -1,4 +1,6 @@
-var fahrenheitTemp = document.getElementById("fahrenheitTemp");
+var temperature = document.getElementById("temp");
+var locationName = document.getElementById("location-name");
+var weatherImg = document.getElementById("weather-img");
 // Get Position of User
 function getLocation() {
   if (navigator.geolocation) {
@@ -19,8 +21,9 @@ function makeUrl(position) {
       if (this.readyState == 4 && this.status == 200) {
         var response = JSON.parse(xhttp.responseText);
         console.log(response);
-         fahrenheitTemp.innerHTML = response.main.temp + "&deg";
-
+        locationName.innerHTML = response.name + ", " + response.sys.country;
+        temperature.innerHTML = response.main.temp + "&deg" + "<a href='#'>F</a>";
+        weatherImg.src = response.weather[0].icon;
       }
     };
     xhttp.open("GET", url, true);
@@ -29,4 +32,3 @@ function makeUrl(position) {
   loadData();
 }
 getLocation();
-
