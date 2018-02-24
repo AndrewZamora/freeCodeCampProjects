@@ -1,4 +1,4 @@
-//Get Position
+//Get Position of User
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(makeUrl);
@@ -6,11 +6,12 @@ function getLocation() {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
-getLocation();
+//Concat latitude and Longitude in Url
 function makeUrl(position) {
   var latitude = position.coords.latitude;
   var longitude = position.coords.longitude;
   var url = "https://fcc-weather-api.glitch.me/api/current?lon=" + longitude + "&lat=" + latitude;
+//Get Weather Data
   function loadData() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
@@ -25,5 +26,5 @@ function makeUrl(position) {
   }
   loadData();
 }
-
+getLocation();
 
