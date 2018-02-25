@@ -1,6 +1,7 @@
 var temperature = document.getElementById("temp");
 var locationName = document.getElementById("location-name");
 var weatherImg = document.getElementById("weather-img");
+var changeTemp = document.getElementById("change-temp");
 // Get Position of User
 function getLocation() {
   if (navigator.geolocation) {
@@ -21,9 +22,16 @@ function makeUrl(position) {
       if (this.readyState == 4 && this.status == 200) {
         var response = JSON.parse(xhttp.responseText);
         console.log(response);
+// Display City Name and Country
         locationName.innerHTML = response.name + ", " + response.sys.country;
-        temperature.innerHTML = response.main.temp + "&deg" + "<a href='#'>F</a>";
+// Display Temp
+        temperature.innerHTML = response.main.temp + "&deg";
+// Display Weather Icon
         weatherImg.src = response.weather[0].icon;
+        changeTemp.addEventListener("toggle", function(){
+          temperature.innerHTML = response.main.temp * 1.8 + 32;
+          // changeTemp.innerHTML = "F";
+        });
       }
     };
     xhttp.open("GET", url, true);
