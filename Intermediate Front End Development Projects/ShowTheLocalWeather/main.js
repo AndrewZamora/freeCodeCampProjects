@@ -2,6 +2,8 @@ var temperature = document.getElementById("temp");
 var locationName = document.getElementById("location-name");
 var weatherImg = document.getElementById("weather-img");
 var changeTemp = document.getElementById("change-temp");
+var fahrenheitBtn = document.getElementById("fahrenheit");
+var celciusBtn = document.getElementById("celcius");
 // Get Position of User
 function getLocation() {
   if (navigator.geolocation) {
@@ -26,11 +28,12 @@ function makeUrl(position) {
         locationName.innerHTML = response.name + ", " + response.sys.country;
 // Display Temp
         temperature.innerHTML = response.main.temp + "&deg";
-// Display Weather Icon
-        weatherImg.src = response.weather[0].icon;
-        changeTemp.addEventListener("toggle", function(){
-          temperature.innerHTML = response.main.temp * 1.8 + 32;
-          // changeTemp.innerHTML = "F";
+// Converts Temp to Fahrenheit
+        fahrenheitBtn.addEventListener("click", function(){
+          temperature.innerHTML = response.main.temp * 1.8 + 32 + "&deg";
+        });
+        celciusBtn.addEventListener("click", function(){
+          temperature.innerHTML = response.main.temp + "&deg";
         });
       }
     };

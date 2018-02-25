@@ -6,10 +6,21 @@ body {
 }
 main {
     text-align: center;
-    margin: auto;
+    margin: 0 auto;
 }
 #temp-space {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 4em;
+    letter-spacing: 0.25em;
+}
+
+a {
+    color: aquamarine;
+    text-decoration: none;
+}
+
+a span {
+        font-size: 50px;
 }
