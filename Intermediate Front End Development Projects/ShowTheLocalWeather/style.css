@@ -1,13 +1,20 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
 body {
     background: #333;
     color: #fff;
     display: flex;
     flex-direction: column;
+    height: 100vh;
 }
+
 main {
     text-align: center;
-    margin: 0 auto;
 }
+
 #temp-space {
     display: flex;
     justify-content: center;
@@ -22,5 +29,13 @@ a {
 }
 
 a span {
-        font-size: 50px;
+    font-size: 50px;
+}
+
+footer {
+    margin-top: auto;
+}
+
+footer p {
+    margin-top: auto;
 }

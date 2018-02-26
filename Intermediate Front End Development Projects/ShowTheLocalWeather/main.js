@@ -37,7 +37,8 @@ function makeUrl(position) {
           temperature.innerHTML = response.main.temp + "&deg";
         });
 // Display Humidity
-        humid.innerHTML = "Humidity " + response.main.humidity + "%";
+        humid.innerHTML = "Humidity" + response.main.humidity + "%";
+
       }
     };
     xhttp.open("GET", url, true);
