@@ -4,6 +4,7 @@ var weatherImg = document.getElementById("weather-img");
 var changeTemp = document.getElementById("change-temp");
 var fahrenheitBtn = document.getElementById("fahrenheit");
 var celciusBtn = document.getElementById("celcius");
+var humid = document.getElementById("humid-space");
 // Get Position of User
 function getLocation() {
   if (navigator.geolocation) {
@@ -35,6 +36,8 @@ function makeUrl(position) {
         celciusBtn.addEventListener("click", function(){
           temperature.innerHTML = response.main.temp + "&deg";
         });
+// Display Humidity
+        humid.innerHTML = "Humidity " + response.main.humidity + "%";
       }
     };
     xhttp.open("GET", url, true);
