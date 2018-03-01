@@ -4,7 +4,7 @@ var searchResult = document.getElementById('search-result');
 var searchBtn = document.getElementById('search-btn');
 
 function loadData(e) {
-    // stop form from submitting normally
+    // Stop form from submitting normally
     e.preventDefault();
     // Get users query from form and make url
     var userInput = document.getElementById('search').value;
@@ -14,15 +14,16 @@ function loadData(e) {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             var response = JSON.parse(xhttp.responseText);
-            console.log(url);
-            console.log(response);
+            // Display user's search
             searchResult.innerHTML = 'Results for "' + userInput + '"';
+            // Format User's Results
             var output = '';
             for (var i = 0; i < response[1].length; i++) {
                 output += '<h2>'+ response[1][i]+'</h2>'+
                 '<p>'+ response[2][i] + '</p>'+
                 '<a target="_blank" href="'+ response[3][i] +'">Read More</a>';
             }
+            // Display User's Results
             results.innerHTML = output;
         }
     };
