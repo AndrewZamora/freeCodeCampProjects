@@ -19,9 +19,9 @@ function loadData(e) {
             // Format User's Results
             var output = '';
             for (var i = 0; i < response[1].length; i++) {
-                output += '<h2>'+ response[1][i]+'</h2>'+
+                output += '<div class="card"><h2>'+ response[1][i]+'</h2>'+
                 '<p>'+ response[2][i] + '</p>'+
-                '<a target="_blank" href="'+ response[3][i] +'">Read More</a>';
+                '<a target="_blank" href="'+ response[3][i] +'">Read More</a></div>';
             }
             // Display User's Results
             results.innerHTML = output;
