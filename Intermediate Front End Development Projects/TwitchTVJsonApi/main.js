@@ -1,4 +1,5 @@
 var demo = document.getElementById('demo');
+var online = document.getElementById('onOrOff');
 var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
 var urlStreams = "https://wind-bow.glitch.me/twitch-api/streams/";
 var urlUsers = "https://wind-bow.glitch.me/twitch-api/users/";
@@ -29,13 +30,14 @@ function allUsers() {
 }
 
 allUsers();
-
 // Indicate Which User Channels Are Online
 function displayOnline (data) {
-  if (data.stream == null) {
-    console.log('offline')  
-  }else{
-    console.log('online')
+  if (data.stream == null){
+    onOrOff.innerHTML += "<p>offline</p>";
+    console.log('offline');
+  } else {
+    onOrOff.innerHTML += "<p>online</p>";
+    console.log('online');
   }
   console.log(data);
 }
