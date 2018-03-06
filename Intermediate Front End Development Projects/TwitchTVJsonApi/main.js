@@ -3,6 +3,9 @@ var online = document.getElementById('onOrOff');
 var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
 var urlStreams = "https://wind-bow.glitch.me/twitch-api/streams/";
 var urlUsers = "https://wind-bow.glitch.me/twitch-api/users/";
+var channelName = [];
+var channelLogo = [];
+var streamData = [];
 
 // Get JSON Data
 getData = function (url, callback) {
@@ -16,38 +19,80 @@ getData = function (url, callback) {
   xhttp.open('GET', url, true);
   xhttp.send();
 }
-// Display All User Channel Names
-function displayChannel(data) {
-  demo.innerHTML += '<div><img src="' + data.logo + '">' + '<p>' + data.display_name + '</p></div>';
+
+function collectChannel(data) {
+  channelName.push(data.display_name);
+  channelLogo.push(data.logo);
 }
+
 
 function allUsers() {
   var users = '';
   for (var i = 0; i < channels.length; i++) {
     users = urlUsers + channels[i];
-    getData(users, displayChannel);
+    getData(users, collectChannel);
   }
 }
 
 allUsers();
-// Indicate Which User Channels Are Online
-function displayOnline (data) {
-  if (data.stream == null){
-    onOrOff.innerHTML += "<p>offline</p>";
-    console.log('offline');
+
+function displayOnline(data) {
+  if (data.stream !== null ){
+    streamData.push(data.stream.channel.display_name);
   } else {
-    onOrOff.innerHTML += "<p>online</p>";
-    console.log('online');
-  }
-  console.log(data);
+    streamData.push(data.stream);
+  } 
 }
 
-function onlineChannels(){
+
+function onlineChannels() {
   var streams = '';
   for (var i = 0; i < channels.length; i++) {
-   streams = urlStreams + channels[i];
-   getData(streams, displayOnline); 
+    streams = urlStreams + channels[i];
+    getData(streams, displayOnline);
   }
 }
 
 onlineChannels();
+
+console.log(streamData);
+
+
+
+
+
+// Display All User Channel Names
+// function displayChannel(data) {
+//   demo.innerHTML += '<div><img src="' + data.logo + '">' + '<p>' + data.display_name + '</p></div>';
+// }
+
+// function allUsers() {
+//   var users = '';
+//   for (var i = 0; i < channels.length; i++) {
+//     users = urlUsers + channels[i];
+//     getData(users, displayChannel);
+//   }
+// }
+
+// allUsers();
+// Indicate Which User Channels Are Online
+// function displayOnline (data) {
+//   if (data.stream == null){
+//     onOrOff.innerHTML += "<p>offline</p>";
+//     console.log('offline');
+//   } else {
+//     onOrOff.innerHTML += "<p>online</p>";
+//     console.log('online');
+//   }
+//   console.log(data);
+// }
+
+// function onlineChannels(){
+//   var streams = '';
+//   for (var i = 0; i < channels.length; i++) {
+//    streams = urlStreams + channels[i];
+//    getData(streams, displayOnline); 
+//   }
+// }
+
+// onlineChannels();
