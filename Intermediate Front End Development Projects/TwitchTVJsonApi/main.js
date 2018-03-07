@@ -6,9 +6,9 @@ var urlUsers = "https://wind-bow.glitch.me/twitch-api/users/";
 var channelName = [];
 var channelLogo = [];
 var streamData = [];
-
 // Get JSON Data
 getData = function (url, callback) {
+  
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -34,14 +34,13 @@ function allUsers() {
   }
 }
 
-allUsers();
-
 function displayOnline(data) {
-  if (data.stream !== null ){
-    streamData.push(data.stream.channel.display_name);
+  if (data.stream !== null) {
+    channelName.push(data.stream.channel.display_name + "online");
   } else {
     streamData.push(data.stream);
-  } 
+  }
+
 }
 
 
@@ -53,9 +52,12 @@ function onlineChannels() {
   }
 }
 
+
+allUsers();
 onlineChannels();
 
-console.log(streamData);
+console.log(channelName);
+
 
 
 
