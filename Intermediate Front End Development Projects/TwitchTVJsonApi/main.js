@@ -8,7 +8,6 @@ var channelLogo = [];
 var streamData = [];
 // Get JSON Data
 getData = function (url, callback) {
-  
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
@@ -19,49 +18,32 @@ getData = function (url, callback) {
   xhttp.open('GET', url, true);
   xhttp.send();
 }
-
+/////////////////////////////////////////////////
 function collectChannel(data) {
-  channelName.push(data.display_name);
-  channelLogo.push(data.logo);
+  channelName.push(data.display_name );
+  channelName.push(data.logo);
 }
-
-
 function allUsers() {
   var users = '';
+  var streams = '';
   for (var i = 0; i < channels.length; i++) {
     users = urlUsers + channels[i];
     getData(users, collectChannel);
-  }
-}
-
-function displayOnline(data) {
-  if (data.stream !== null) {
-    channelName.push(data.stream.channel.display_name + "online");
-  } else {
-    streamData.push(data.stream);
-  }
-
-}
-
-
-function onlineChannels() {
-  var streams = '';
-  for (var i = 0; i < channels.length; i++) {
     streams = urlStreams + channels[i];
     getData(streams, displayOnline);
   }
+
+}
+////////////////////////////////////////////////////////
+function displayOnline(data) {
+  if (data.stream !== null){
+    channelName.push(data);
+  }
 }
 
+/////////////////////////////////
 
 allUsers();
-onlineChannels();
-
-console.log(channelName);
-
-
-
-
-
 
 // Display All User Channel Names
 // function displayChannel(data) {
