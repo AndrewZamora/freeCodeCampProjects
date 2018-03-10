@@ -6,6 +6,7 @@ var urlUsers = "https://wind-bow.glitch.me/twitch-api/users/";
 var channelName = [];
 var channelLogo = [];
 var streamData = [];
+var notOnline = [];
 // Get JSON Data
 getData = function (url, callback) {
   var xhttp = new XMLHttpRequest();
@@ -18,13 +19,14 @@ getData = function (url, callback) {
   xhttp.open('GET', url, true);
   xhttp.send();
 }
-/////////////////////////////////////////////////
+// Push online users first to DOM
 function checkOnline(data) {
 if(data.stream && data.stream !== null){
   demo.innerHTML+= '<h3>'+ data.stream.channel.display_name + '</h3><div><img src="' + data.stream.channel.logo + '"><p>Online</p><p>'+ data.stream.channel.status+ '</p>';
   channels.shift();
-  console.log(channels);
+// The shift isn't showing outside of the function
 }
+
 }
 
 function getAllUsers() {
