@@ -23,24 +23,34 @@ getData = function (url, callback) {
 function checkOnline(data) {
 if(data.stream && data.stream !== null){
   demo.innerHTML+= '<h3>'+ data.stream.channel.display_name + '</h3><div><img src="' + data.stream.channel.logo + '"><p>Online</p><p>'+ data.stream.channel.status+ '</p>';
-  channels.shift();
-// The shift isn't showing outside of the function
+  getUsers();
 }
 
 }
 
-function getAllUsers() {
-  var stream = '';
+function showUsers (data){
+  demo.innerHTML+= data.display_name + '<br>';
+}
+
+function getUsers (){
   var users = '';
   for (var i = 0; i < channels.length; i++) {
-    stream = urlStreams + channels[i];
     users = urlUsers + channels[i];
-    getData(stream, checkOnline);
-    getData(users,checkOnline)
+    getData(users,showUsers)
   }
 }
 
-getAllUsers();
+function getStreams() {
+  var stream = '';
+  for (var i = 0; i < channels.length; i++) {
+    stream = urlStreams + channels[i];
+    getData(stream,checkOnline);
+  }
+}
+
+
+getStreams();
+
 
 
 
