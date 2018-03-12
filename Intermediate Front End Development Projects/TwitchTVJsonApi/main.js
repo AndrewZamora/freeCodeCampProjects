@@ -7,7 +7,7 @@ var channelName = [];
 var channelLogo = [];
 var streamData = [];
 var notOnline = [];
-// Get JSON Data
+// Get JSON Data From Server 
 getData = function (url, callback) {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
@@ -19,14 +19,25 @@ getData = function (url, callback) {
   xhttp.open('GET', url, true);
   xhttp.send();
 }
-// Push online users first to DOM
+// Push online Users From Stream Url first to DOM
 function checkOnline(data) {
 if(data.stream && data.stream !== null){
   demo.innerHTML+= '<h3>'+ data.stream.channel.display_name + '</h3><div><img src="' + data.stream.channel.logo + '"><p>Online</p><p>'+ data.stream.channel.status+ '</p>';
-  getUsers();
+  notOnline.push(channels.shift());
+}
+console.log(notOnline);
 }
 
+function getStreams() {
+  var stream = '';
+  for (var i = 0; i < channels.length; i++) {
+    stream = urlStreams + channels[i];
+    getData(stream,checkOnline);
+  }
 }
+
+getStreams();
+
 
 function showUsers (data){
   demo.innerHTML+= data.display_name + '<br>';
@@ -39,17 +50,6 @@ function getUsers (){
     getData(users,showUsers)
   }
 }
-
-function getStreams() {
-  var stream = '';
-  for (var i = 0; i < channels.length; i++) {
-    stream = urlStreams + channels[i];
-    getData(stream,checkOnline);
-  }
-}
-
-
-getStreams();
 
 
 
