@@ -4,8 +4,6 @@ var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck"
 var urlStreams = "https://wind-bow.glitch.me/twitch-api/streams/";
 var urlUsers = "https://wind-bow.glitch.me/twitch-api/users/";
 var channelName = [];
-var channelLogo = [];
-var streamData = [];
 var notOnline = [];
 // Get JSON Data From Server 
 getData = function (url, callback) {
