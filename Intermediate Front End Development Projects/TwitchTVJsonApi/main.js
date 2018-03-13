@@ -19,7 +19,7 @@ getData = function (url, callback) {
 }
 // Push online Users From Stream Url first to DOM
 function checkOnline(data) {
-if(data.stream && data.stream !== null){
+if(data.stream !== null){
   demo.innerHTML+= '<h3>'+ data.stream.channel.display_name + '</h3><div><img src="' + data.stream.channel.logo + '"><p>Online</p><p>'+ data.stream.channel.status+ '</p>';
   notOnline.push(channels.shift());
 }
