@@ -3,8 +3,6 @@ var offline = document.getElementById('offline');
 var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
 var urlStreams = "https://wind-bow.glitch.me/twitch-api/streams/";
 var urlUsers = "https://wind-bow.glitch.me/twitch-api/users/";
-var channelName = [];
-var notOnline = [];
 var offlineChannels = [];
 
 /* Make Get Requests */
@@ -30,26 +28,24 @@ function getStreams() {
 }
 
 function checkOnline(data) {
-if (data.stream == null) {
-  offlineChannels.push(channels.pop());
-  getUsers();
-} else {
-  demo.innerHTML += '<h3>' + data.stream.channel.display_name + '</h3><div><img src="' + data.stream.channel.logo + '"><p>Online</p><p>' + data.stream.channel.status + '</p>';
-}
+  if (data.stream == null) {
+/* If the user is online then knock that user's channel off the channels array*/
+    offlineChannels.push(channels.pop());
+    getUsers();
+  } else {
+    demo.innerHTML += '<h3>' + data.stream.channel.display_name + '</h3><div><img src="' + data.stream.channel.logo + '"><p>Online</p><p>' + data.stream.channel.status + '</p>';
+  }
 }
 getStreams();
 
+/* Use URLs to get which users that are online */
 function getUsers() {
   var users = '';
+  /* With new array make URLs to get offline user's data */
   users = urlUsers + offlineChannels.pop();
   getData(users, showUsers);
 }
-function showUsers(data) {
-  offline.innerHTML += '<h3>' + data.display_name +'</h3><div><img src="'+ data.logo +'"><p>Offline</p>';
-}
 
-/* Use URLs to get which users that are online */
-/* If the user is online then knock that user's channel off the channels array*/
-/* With new array make URLs to get offline user's data */
-/* Display data on the page */
-/* Problems: Data is asnyc = can control how the data comes in */
+function showUsers(data) {
+  offline.innerHTML += '<h3>' + data.display_name + '</h3><div><img src="' + data.logo + '"><p>Offline</p>';
+}
