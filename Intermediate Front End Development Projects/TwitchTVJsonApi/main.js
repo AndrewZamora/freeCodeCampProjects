@@ -33,7 +33,7 @@ function checkOnline(data) {
     offlineChannels.push(channels.pop());
     getUsers();
   } else {
-    online.innerHTML += '<h3>' + data.stream.channel.display_name + '</h3><div><a href="' + data.stream.channel.url + '" target="_blank" ><img src="' + data.stream.channel.logo + '" alt="Channel Logo"></a><p>Online</p><p>' + data.stream.channel.status + '</p>';
+    online.innerHTML += '<h3>' + data.stream.channel.display_name + '</h3><div><a href="' + data.stream.channel.url + '" target="_blank" ><img src="' + data.stream.channel.logo + '" alt="Channel Logo"></a><div class="status-circle online"></div><p>' + data.stream.channel.status + '</p>';
   }
 }
 getStreams();
@@ -47,5 +47,5 @@ function getUsers() {
 }
 
 function showUsers(data) {
-  offline.innerHTML += '<h3>' + data.display_name + '</h3><div><img src="' + data.logo + '"><p>Offline</p>';
+  offline.innerHTML += '<h3>' + data.display_name + '</h3><div><img src="' + data.logo + '"><div class="status-circle offline"></div>';
 }
