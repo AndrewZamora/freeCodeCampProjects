@@ -29,11 +29,11 @@ function getStreams() {
 
 function checkOnline(data) {
   if (data.stream == null) {
-/* If the user is online then knock that user's channel off the channels array*/
+    /* If the user is online then knock that user's channel off the channels array*/
     offlineChannels.push(channels.pop());
     getUsers();
   } else {
-    demo.innerHTML += '<h3>' + data.stream.channel.display_name + '</h3><div><img src="' + data.stream.channel.logo + '"><p>Online</p><p>' + data.stream.channel.status + '</p>';
+    online.innerHTML += '<h3>' + data.stream.channel.display_name + '</h3><div><a href="' + data.stream.channel.url + '" target="_blank" ><img src="' + data.stream.channel.logo + '" alt="Channel Logo"></a><p>Online</p><p>' + data.stream.channel.status + '</p>';
   }
 }
 getStreams();
