@@ -47,5 +47,5 @@ function getUsers() {
 }
 
 function showUsers(data) {
-  offline.innerHTML += '<h3>' + data.display_name + '</h3><div><img src="' + data.logo + '"><div class="status-circle offline"></div>';
+  offline.innerHTML += '<h3>' + data.display_name + '</h3><div><img src="' + data.logo + '"><div class="status-circle offline"></div><p>'+ data.display_name + ' is currently offline.</p>';
 }
