@@ -38,18 +38,25 @@ img {
     padding: 1em;
     border: 0.09rem rgb(185, 72, 185) solid;
 }
+.online-box{
+    padding: 1em;
+    border: 0.09rem rgb(185, 72, 185) solid;
+}
 
-.offline-box .box-text {
+.box-text {
     display: flex;
 }
-.offline-box .box-text div:nth-of-type(2){
+.box-text div:nth-of-type(2){
     margin: auto;
 }
 
-.offline-box .box-text p{
+.box-text p{
     margin: auto; 
 }
 
 .offline-box h3 {
+    margin-top: 0;
+}
+.online-box h3 {
     margin-top: 0;
 }

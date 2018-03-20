@@ -35,7 +35,7 @@ function checkOnline(data) {
     offlineChannels.push(channels.pop());
     getUsers();
   } else {
-    onlineSpace.innerHTML += '<div><h3>' + data.stream.channel.display_name + '</h3><a href="' + data.stream.channel.url + '" target="_blank" ><img src="' + data.stream.channel.logo + '" alt="Channel Logo"></a><div class="status-circle online-color"></div><p>Currently Streaming:<br>' + data.stream.game + '</p></div>';
+    onlineSpace.innerHTML += '<div class="online-box"><div class="box-text"><div><a href="' + data.stream.channel.url + '" target="_blank" ><img src="' + data.stream.channel.logo + '" alt="Channel Logo"></a><div class="status-circle online-color"></div></div><div><h3>' + data.stream.channel.display_name + '</h3><p>Streaming: ' + data.stream.game + '</p></div></div></div>';
   }
 }
 getStreams();
@@ -49,5 +49,5 @@ function getUsers() {
 }
 
 function showUsers(data) {
-  offlineSpace.innerHTML += '<div class="offline-box"><div class="box-text"><div><img src="' + data.logo + '"><div class="status-circle offline-color"></div></div><div><h3>' + data.display_name + '</h3><p>Currently Offline.</p></div></div>';
+  offlineSpace.innerHTML += '<div class="offline-box"><div class="box-text"><div><a href="https://www.twitch.tv/' + data.display_name + '" target="_blank"><img src="' + data.logo + '"></a><div class="status-circle offline-color"></div></div><div><h3>' + data.display_name + '</h3><p>Currently Offline.</p></div></div>';
 }
