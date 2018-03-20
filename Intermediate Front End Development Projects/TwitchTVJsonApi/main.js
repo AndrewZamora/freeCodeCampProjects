@@ -1,5 +1,7 @@
-var demo = document.getElementById('demo');
-var offline = document.getElementById('offline');
+var onlineSpace = document.getElementById('online-space');
+var offlineSpace = document.getElementById('offline-space');
+var onlineBtn = document.getElementById('online-btn');
+var offlineBtn = document.getElementById('offline-btn');
 var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
 var urlStreams = "https://wind-bow.glitch.me/twitch-api/streams/";
 var urlUsers = "https://wind-bow.glitch.me/twitch-api/users/";
@@ -33,7 +35,7 @@ function checkOnline(data) {
     offlineChannels.push(channels.pop());
     getUsers();
   } else {
-    online.innerHTML += '<h3>' + data.stream.channel.display_name + '</h3><div><a href="' + data.stream.channel.url + '" target="_blank" ><img src="' + data.stream.channel.logo + '" alt="Channel Logo"></a><div class="status-circle online"></div><p>' + data.stream.channel.status + '</p>';
+    onlineSpace.innerHTML += '<div><h3>' + data.stream.channel.display_name + '</h3><a href="' + data.stream.channel.url + '" target="_blank" ><img src="' + data.stream.channel.logo + '" alt="Channel Logo"></a><div class="status-circle online-color"></div><p>Currently Streaming:<br>' + data.stream.game + '</p></div>';
   }
 }
 getStreams();
@@ -47,5 +49,5 @@ function getUsers() {
 }
 
 function showUsers(data) {
-  offline.innerHTML += '<h3>' + data.display_name + '</h3><div><img src="' + data.logo + '"><div class="status-circle offline"></div><p>'+ data.display_name + ' is currently offline.</p>';
+  offlineSpace.innerHTML += '<div class="offline-box"><div class="box-text"><div><img src="' + data.logo + '"><div class="status-circle offline-color"></div></div><div><h3>' + data.display_name + '</h3><p>Currently Offline.</p></div></div>';
 }
