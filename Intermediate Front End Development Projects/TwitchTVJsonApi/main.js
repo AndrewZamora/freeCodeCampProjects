@@ -51,3 +51,16 @@ function getUsers() {
 function showUsers(data) {
   offlineSpace.innerHTML += '<div class="offline-box"><div class="box-text"><div><a href="https://www.twitch.tv/' + data.display_name + '" target="_blank"><img src="' + data.logo + '"></a><div class="status-circle offline-color"></div></div><div><h3>' + data.display_name + '</h3><p>Currently Offline.</p></div></div>';
 }
+
+/* Navigation Buttons */
+
+/* Hide offline channels when online button is clicked */
+onlineBtn.addEventListener("click", hideOffline);
+function hideOffline() {
+  offlineSpace.classList.add("hidden");
+}
+/* Hide online channels when offline button is clicked */
+offlineBtn.addEventListener("click", hideOnline);
+function hideOnline() {
+  onlineSpace.classList.add("hidden");
+}
