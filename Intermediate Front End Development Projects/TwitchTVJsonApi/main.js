@@ -2,6 +2,7 @@ var onlineSpace = document.getElementById('online-space');
 var offlineSpace = document.getElementById('offline-space');
 var onlineBtn = document.getElementById('online-btn');
 var offlineBtn = document.getElementById('offline-btn');
+var allBtn = document.getElementById('all-btn');
 var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
 var urlStreams = "https://wind-bow.glitch.me/twitch-api/streams/";
 var urlUsers = "https://wind-bow.glitch.me/twitch-api/users/";
@@ -58,9 +59,17 @@ function showUsers(data) {
 onlineBtn.addEventListener("click", hideOffline);
 function hideOffline() {
   offlineSpace.classList.add("hidden");
+  onlineSpace.classList.remove("hidden");
 }
 /* Hide online channels when offline button is clicked */
 offlineBtn.addEventListener("click", hideOnline);
 function hideOnline() {
   onlineSpace.classList.add("hidden");
+  offlineSpace.classList.remove("hidden");
+}
+/* Display All Channels */
+allBtn.addEventListener("click", showAll);
+function showAll(){
+  onlineSpace.classList.remove("hidden");
+  offlineSpace.classList.remove("hidden");
 }

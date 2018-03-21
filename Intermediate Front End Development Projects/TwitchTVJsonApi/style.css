@@ -1,5 +1,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:#222222;
+    color: #ffffff;
 }
 
 main {
@@ -63,4 +65,8 @@ img {
 
 .hidden {
     display: none;
+}
+
+footer {
+    text-align: center;
 }
