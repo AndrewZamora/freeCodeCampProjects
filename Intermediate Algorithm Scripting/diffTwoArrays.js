@@ -1,25 +1,23 @@
 // Intermediate Algorithm Scripting: Diff Two Arrays
 // Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
-// Note
-// You can return the array with its elements in any order.
+// Note: You can return the array with its elements in any order.
 
 function diffArray(arr1, arr2) {
-  var sortedArr1 = arr1;
-  var sortedArr2 = arr2;
+  /*Filter arr1 for different elements in arr2 */
+  var filteredArr1 = arr1.filter(removeVal);
 
-  var newArr = sortedArr1.filter(removeVal);
   function removeVal(val) {
-    console.log(sortedArr2.indexOf(val) + " " + val);
-    return sortedArr2.indexOf(val) < 0;
+    return arr2.indexOf(val) < 0;
   }
+  /*Filter arr2 for different elements in arr1 */
+  var filteredArr2 = arr2.filter(removeValTwo);
 
-  var newArrTwo = sortedArr2.filter(removeValTwo);
   function removeValTwo(val) {
-    console.log(sortedArr1.indexOf(val) + " " + val);
-    return sortedArr1.indexOf(val) < 0;
+    return arr1.indexOf(val) < 0;
   }
-  var all = newArr.concat(newArrTwo);
-  return all;
+  /* Combine filtered arrays */
+  var results = filteredArr1.concat(filteredArr2);
+  return results;
 }
 console.log(diffArray(["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));
 
