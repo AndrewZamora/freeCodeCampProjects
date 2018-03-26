@@ -3,19 +3,28 @@
 // All roman numerals answers should be provided in upper-case.
 
 function convertToRoman(num) {
-    return num;
-   }
-   
-   convertToRoman(36);
+    var numeral = "";
+    if (num < 4) {
+        for (var i = 0; i < num; i++) {
+            numeral += "I";
+        }
+    }
+    if (num > 9) {
+        numeral = (num).toString(10).split("").map(Number);
+    }
+    return numeral;
+}
+
+console.log(convertToRoman(10));
 
 //    convertToRoman(2) should return "II".
-//    convertToRoman(3) should return "III".
+//     convertToRoman(3) should return "III".
 //    convertToRoman(4) should return "IV".
-//    convertToRoman(5) should return "V".
-//    convertToRoman(9) should return "IX".
+//     convertToRoman(5) should return "V".
+//     convertToRoman(9) should return "IX".
 //    convertToRoman(12) should return "XII".
 //    convertToRoman(16) should return "XVI".
-//    convertToRoman(29) should return "XXIX".
+//     convertToRoman(29) should return "XXIX".
 //    convertToRoman(44) should return "XLIV".
 //    convertToRoman(45) should return "XLV"
 //    convertToRoman(68) should return "LXVIII"
@@ -33,4 +42,3 @@ function convertToRoman(num) {
 //    convertToRoman(1023) should return "MXXIII"
 //    convertToRoman(2014) should return "MMXIV"
 //    convertToRoman(3999) should return "MMMCMXCIX"
-   
