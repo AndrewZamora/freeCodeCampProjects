@@ -2,17 +2,34 @@
 // Convert the given number into a roman numeral.
 // All roman numerals answers should be provided in upper-case.
 
+var romanNum = ["I", "V", "X", "L", "C", "D", "M"];
+
 function convertToRoman(num) {
     var numeral = "";
-    if (num < 4) {
-        for (var i = 0; i < num; i++) {
-            numeral += "I";
+    var result = "";
+    numeral = (num).toString(10).split("").map(Number);
+    if (numeral.length < 2) {
+        for (var i = 0; i < numeral[0]; i++) {
+            result += romanNum[0];
+        }
+        if (result.length == 4) {
+            result = result.slice(0, 1);
+            result += romanNum[1];
+        }
+        if (result.length > 4) {
+            result = romanNum[1];
+            for (var i = 0; i < num - 5; i++) {
+                result += romanNum[0];
+            }
         }
     }
-    if (num > 9) {
-        numeral = (num).toString(10).split("").map(Number);
+    if (numeral.length == 2) {
+        for (var i = 0; i < numeral[0]; i++) {
+            result += romanNum[2];
+        }
     }
-    return numeral;
+
+    return result;
 }
 
 console.log(convertToRoman(10));
