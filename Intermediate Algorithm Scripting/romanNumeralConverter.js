@@ -22,17 +22,23 @@ function convertToRoman(num) {
                 result += romanNum[0];
             }
         }
+        if (result.length == 5) {
+            result = romanNum[1];
+        }
     }
     if (numeral.length == 2) {
         for (var i = 0; i < numeral[0]; i++) {
             result += romanNum[2];
+        }
+        for (var i = 0; i < numeral[1]; i++){
+            result += romanNum[0];
         }
     }
 
     return result;
 }
 
-console.log(convertToRoman(10));
+console.log(convertToRoman());
 
 //    convertToRoman(2) should return "II".
 //     convertToRoman(3) should return "III".
