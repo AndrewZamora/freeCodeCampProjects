@@ -22,6 +22,16 @@ Return Largest Numbers in Arrays- largestNumArray.js
 * [ ] Boo who
 * [ ] Sorted Union
 * [ ] Convert HTML Entities
+* [ ] Spinal Tap Case
+* [ ] Sum All Fibonacci Numbers
+* [ ] Sum All Prime 
+* [ ] Smallest Common Multiple 
+* [ ] Finders Keepers
+* [ ] Drop it 
+* [ ] Streamroller 
+* [ ] Binary Agents 
+* [ ] Everything Be True
+* [ ] Arguments Optional
 
 
 ## FreeCodeCampBeta
