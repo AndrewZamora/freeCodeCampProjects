@@ -32,8 +32,8 @@ function getStreams() {
 
 function checkOnline(data) {
   if (data.stream == null) {
-    /* If the user is online then knock that user's channel off the channels array*/
-    offlineChannels.push(channels.pop());
+    /* If the user is offline push user name to offlineChannels array*/
+    offlineChannels.push(data._links.self.slice(37 - self.length));
     getUsers();
   } else {
     onlineSpace.innerHTML += '<div class="online-box"><div class="box-text"><div><a href="' + data.stream.channel.url + '" target="_blank" ><img src="' + data.stream.channel.logo + '" alt="Channel Logo"></a><div class="status-circle online-color"></div></div><div><h3>' + data.stream.channel.display_name + '</h3><p>Streaming: ' + data.stream.game + '</p></div></div></div>';
