@@ -10,24 +10,17 @@ function convertToRoman(num) {
     var result = [];
     for (var i = 0; i < num; i++) {
         result.push(romanNum[0]);
-        console.log(result);
-        if (result.length == 4){
-            result.splice(0, result.length, sub[num - (i+ 1)]);
+        if(result.length > 3){
+            result.push(romanNum[1]);
+            result.splice(0,3);
         }
+        console.log(result);
     }
 
     return result.join('');
 }
 
-console.log(convertToRoman(5));
-
-
-// if (i / 4 == 1){
-//     result.push(sub[0]);
-// }
-// if(i / 9 == 1){
-//     result.push(romanNum[1]);
-// }
+console.log(convertToRoman());
 
 //    convertToRoman(2) should return "II".
 //     convertToRoman(3) should return "III".
@@ -54,31 +47,3 @@ console.log(convertToRoman(5));
 //    convertToRoman(1023) should return "MXXIII"
 //    convertToRoman(2014) should return "MMXIV"
 //    convertToRoman(3999) should return "MMMCMXCIX"
-
-// numeral = (num).toString(10).split("").map(Number);
-//     if (numeral.length < 2) {
-//         for (var i = 0; i < numeral[0]; i++) {
-//             result += romanNum[0];
-//         }
-//         if (result.length == 4) {
-//             result = result.slice(0, 1);
-//             result += romanNum[1];
-//         }
-//         if (result.length > 4) {
-//             result = romanNum[1];
-//             for (var i = 0; i < num - 5; i++) {
-//                 result += romanNum[0];
-//             }
-//         }
-//         if (result.length == 5) {
-//             result = romanNum[1];
-//         }
-//     }
-//     if (numeral.length == 2) {
-//         for (var i = 0; i < numeral[0]; i++) {
-//             result += romanNum[2];
-//         }
-//         for (var i = 0; i < numeral[1]; i++){
-//             result += romanNum[0];
-//         }
-//     }
