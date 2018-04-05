@@ -25,7 +25,7 @@ img {
     margin-top: -20px;
     z-index: 1;
     position: absolute;
-    border: 0.09rem rgb(185, 72, 185) solid;
+    border: 0.09rem #6441A5 solid;
 }
 
 .online-color {
@@ -38,11 +38,11 @@ img {
 
 .offline-box {
     padding: 1em;
-    border: 0.09rem rgb(185, 72, 185) solid;
+    border: 0.09rem #6441A5 solid;
 }
 .online-box{
     padding: 1em;
-    border: 0.09rem rgb(185, 72, 185) solid;
+    border: 0.09rem #6441A5 solid;
 }
 
 .box-text {
@@ -74,13 +74,18 @@ footer {
 button {
     border: none;
     color: #fff;
-    background:rgb(185, 72, 185);
+    background:#6441A5;
     padding: 0.5rem;
     cursor: pointer;
 }
 
 button:focus{
     outline:0;
+}
+
+button:hover {
+    background: #fff;
+    color: #6441A5;
 }
 
 @media only screen and (max-width: 600px) {
