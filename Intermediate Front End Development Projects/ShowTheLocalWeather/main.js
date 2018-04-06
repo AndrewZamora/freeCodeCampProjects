@@ -31,7 +31,7 @@ function makeUrl(position) {
         temperature.innerHTML = response.main.temp + "&deg";
 // Converts Temp to Fahrenheit
         fahrenheitBtn.addEventListener("click", function(){
-          temperature.innerHTML = response.main.temp * 1.8 + 32 + "&deg";
+          temperature.innerHTML = (response.main.temp * 1.8 + 32).toFixed(2) + "&deg";
         });
         celciusBtn.addEventListener("click", function(){
           temperature.innerHTML = response.main.temp + "&deg";
