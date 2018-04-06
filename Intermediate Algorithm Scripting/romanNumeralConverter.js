@@ -9,18 +9,16 @@ var romanNum = ["I", "V", "X", "L", "C", "D", "M"];
 function convertToRoman(num) {
     var result = [];
     for (var i = 0; i < num; i++) {
-        result.push(romanNum[0]);
-        if(result.length > 3){
+        if(i == 3 || i == 4){
             result.push(romanNum[1]);
-            result.splice(0,3);
         }
-        console.log(result);
+        result.push(romanNum[0]);
     }
 
     return result.join('');
 }
 
-console.log(convertToRoman());
+console.log(convertToRoman(5));
 
 //    convertToRoman(2) should return "II".
 //     convertToRoman(3) should return "III".
