@@ -60,16 +60,26 @@ onlineBtn.addEventListener("click", hideOffline);
 function hideOffline() {
   offlineSpace.classList.add("hidden");
   onlineSpace.classList.remove("hidden");
+  onlineBtn.classList.remove("active");
+  allBtn.classList.remove("active");
+  onlineBtn.classList.add("active");
+  offlineBtn.classList.remove("active");
 }
 /* Hide online channels when offline button is clicked */
 offlineBtn.addEventListener("click", hideOnline);
 function hideOnline() {
   onlineSpace.classList.add("hidden");
   offlineSpace.classList.remove("hidden");
+  offlineBtn.classList.add("active");
+  allBtn.classList.remove("active");
+  onlineBtn.classList.remove("active");
 }
 /* Display All Channels */
 allBtn.addEventListener("click", showAll);
 function showAll(){
   onlineSpace.classList.remove("hidden");
   offlineSpace.classList.remove("hidden");
+  offlineBtn.classList.remove("active");
+  onlineBtn.classList.remove("active");
+  allBtn.classList.add("active");
 }
