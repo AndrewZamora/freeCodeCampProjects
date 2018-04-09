@@ -2,10 +2,14 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background:#fff;
     color: #000;
+    margin: 0;
 }
 
 nav {
+
     display: flex;
+    margin-bottom: 1em;
+    box-shadow: 0 8px 6px -6px #ccc;
 }
 
 #online-btn {
@@ -17,7 +21,7 @@ main {
     margin: auto;
 }
 
-main h1 {
+h1 {
     text-align: center;
 }
 
