@@ -16,6 +16,14 @@ nav {
     margin: auto;
 }
 
+form {
+    margin: 0 auto 1em auto;
+    width: 85%;
+}
+#search {
+    width: 100%;
+}
+
 main {
     width: 50%;
     margin: auto;
