@@ -18,10 +18,17 @@ nav {
 
 form {
     margin: 0 auto 1em auto;
-    width: 85%;
+    width: 100%;
+    border-bottom: 0.1em #ccc solid;
 }
 #search {
+    font-size: 1em;
+    padding: 0.5em;
+    border: none;
     width: 100%;
+}
+#search:focus{
+    outline: 0;
 }
 
 main {
