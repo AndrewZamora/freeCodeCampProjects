@@ -36,7 +36,7 @@ function checkOnline(data) {
     offlineChannels.push(data._links.self.slice(37 - self.length));
     getUsers();
   } else {
-    onlineSpace.innerHTML += '<div class="online-box"><div class="box-text"><div><a href="' + data.stream.channel.url + '" target="_blank" ><img src="' + data.stream.channel.logo + '" alt="Channel Logo"></a><div class="status-circle online-color"></div></div><div><h3>' + data.stream.channel.display_name + '</h3><p>Streaming: ' + data.stream.game + '</p></div></div></div>';
+    onlineSpace.innerHTML += '<div class="online-box"><div class="box-text"><div><a href="' + data.stream.channel.url + '" target="_blank" ><img src="' + data.stream.channel.logo + '" alt="Channel Logo"></a><div class="status-circle online-color"></div></div><div><h3>' + data.stream.channel.display_name + '</h3><p>Streaming: ' + data.stream.game + '</p></div></div><div class="preview"><img src="'+ data.stream.preview.large+'"></div></div>';
   }
 }
 getStreams();
