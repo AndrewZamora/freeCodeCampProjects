@@ -3,6 +3,7 @@ var offlineSpace = document.getElementById('offline-space');
 var onlineBtn = document.getElementById('online-btn');
 var offlineBtn = document.getElementById('offline-btn');
 var allBtn = document.getElementById('all-btn');
+var searchText = document.getElementById('search');
 var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
 var urlStreams = "https://wind-bow.glitch.me/twitch-api/streams/";
 var urlUsers = "https://wind-bow.glitch.me/twitch-api/users/";
@@ -74,7 +75,7 @@ function hideOnline() {
   onlineBtn.classList.remove("active");
 }
 /* Display All Channels */
-allBtn.addEventListener("click", showAll);
+allBtn.addEventListener('click', showAll);
 function showAll(){
   allBtn.classList.add("active");
   onlineSpace.classList.remove("hidden");
@@ -82,4 +83,14 @@ function showAll(){
   offlineBtn.classList.remove("active");
   onlineBtn.classList.remove("active");
  
+}
+/* Search Bar */
+search.addEventListener('onkeydown',searchQuery);
+function searchQuery() {
+  event.preventDefault();
+  if(event.key === 'Enter') {
+    alert(search.value);     
+}
+   
+  
 }
