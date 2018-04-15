@@ -91,6 +91,4 @@ function searchQuery() {
   if(event.key === 'Enter') {
     alert(search.value);     
 }
-   
-  
 }
