@@ -1,37 +1,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background:#fff;
+    background: #fff;
     color: #000;
     margin: 0;
-}
-
-nav {
-    display: flex;
-    margin-bottom: 1em;
-    box-shadow: 0 8px 6px -6px #ccc;
-}
-
-#online-btn {
-    margin: auto;
-}
-
-form {
-    margin: 1em;
-    display: flex;
-}
-
-#search {
-    border: #ccc solid 0.08em;
-    font-size: 1em;
-    margin-left:auto;
-}
-
-#search:focus{
-    outline: 0;
-}
-#submit {
-    border: none;
-    margin-right:auto;
 }
 
 main {
@@ -42,6 +13,60 @@ main {
 h1 {
     text-align: center;
 }
+
+/* Search Bar */
+
+form {
+    margin: 1em;
+    display: flex;
+}
+
+#search {
+    border: #ccc solid 0.08em;
+    font-size: 1em;
+    margin-left: auto;
+}
+
+#search:focus {
+    outline: 0;
+}
+
+#submit {
+    border: none;
+    margin-right: auto;
+}
+
+/* Navigation Bar */
+
+nav {
+    display: flex;
+    margin-bottom: 1em;
+    box-shadow: 0 8px 6px -6px #ccc;
+}
+
+button {
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 1rem;
+    flex-grow: 1;
+    background: #fff;
+}
+
+button:focus {
+    outline: 0;
+}
+
+#online-btn {
+    margin: auto;
+}
+
+.active {
+    color: #6441A5;
+    border-bottom: solid #6441A5 0.2rem;
+}
+
+/* Channel Boxes */
 
 .box-text img {
     border-radius: 50%;
@@ -70,7 +95,8 @@ h1 {
     padding: 1em;
     border: 0.09rem #6441A5 solid;
 }
-.online-box{
+
+.online-box {
     padding: 1em;
     border: 0.09rem #6441A5 solid;
 }
@@ -78,20 +104,23 @@ h1 {
 .box-text {
     display: flex;
 }
-.box-text div:nth-of-type(2){
-    margin:  0 auto;
+
+.box-text div:nth-of-type(2) {
+    margin: 0 auto;
 }
 
-.box-text h3{
+.box-text h3 {
     padding-top: 0;
 }
-.box-text p{
-    margin: auto; 
+
+.box-text p {
+    margin: auto;
 }
 
 .offline-box h3 {
     margin-top: 0;
 }
+
 .online-box h3 {
     margin-top: 0;
 }
@@ -100,32 +129,18 @@ h1 {
     display: none;
 }
 
-footer {
-    text-align: center;
-}
-
-button {
-    border: none;
-    color: #000;
-    cursor: pointer;
-    font-size: 1rem;
-    flex-grow: 1;
-    background: #fff;
-}
-
-button:focus{
-    outline:0;
-}
-
-.active {
-    color: #6441A5;
-    border-bottom: solid  #6441A5 0.2rem;
-}
-
 .preview img {
     width: 50%;
     height: auto;
 }
+
+/* footer */
+
+footer {
+    text-align: center;
+}
+
+/* Small Screens */
 
 @media only screen and (max-width: 600px) {
     main {
@@ -142,5 +157,4 @@ button:focus{
     #search-box {
         width: 100%;
     }
-    
 }
