@@ -3,7 +3,8 @@ var offlineSpace = document.getElementById('offline-space');
 var onlineBtn = document.getElementById('online-btn');
 var offlineBtn = document.getElementById('offline-btn');
 var allBtn = document.getElementById('all-btn');
-var searchText = document.getElementById('search');
+var searchText = document.getElementById('search-form');
+var search = document.getElementById('search');
 var channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
 var urlStreams = "https://wind-bow.glitch.me/twitch-api/streams/";
 var urlUsers = "https://wind-bow.glitch.me/twitch-api/users/";
@@ -37,7 +38,7 @@ function checkOnline(data) {
     offlineChannels.push(data._links.self.slice(37 - self.length));
     getUsers();
   } else {
-    onlineSpace.innerHTML += '<div class="online-box"><div class="box-text"><div><a href="' + data.stream.channel.url + '" target="_blank" ><img src="' + data.stream.channel.logo + '" alt="Channel Logo"></a><div class="status-circle online-color"></div></div><div><h3>' + data.stream.channel.display_name + '</h3><p>Streaming: ' + data.stream.game + '</p></div></div><div class="preview"><img src="'+ data.stream.preview.large+'"></div></div>';
+    onlineSpace.innerHTML += '<div class="online-box"><div class="box-text"><div><a href="' + data.stream.channel.url + '" target="_blank" ><img src="' + data.stream.channel.logo + '" alt="Channel Logo"></a><div class="status-circle online-color"></div></div><div><h3>' + data.stream.channel.display_name + '</h3><p>Streaming: ' + data.stream.game + '</p></div></div><div class="preview"><img src="' + data.stream.preview.large + '"></div></div>';
   }
 }
 getStreams();
@@ -58,6 +59,7 @@ function showUsers(data) {
 
 /* Hide offline channels when online button is clicked */
 onlineBtn.addEventListener("click", hideOffline);
+
 function hideOffline() {
   offlineSpace.classList.add("hidden");
   onlineBtn.classList.add("active");
@@ -67,6 +69,7 @@ function hideOffline() {
 }
 /* Hide online channels when offline button is clicked */
 offlineBtn.addEventListener("click", hideOnline);
+
 function hideOnline() {
   offlineBtn.classList.add("active");
   onlineSpace.classList.add("hidden");
@@ -76,19 +79,19 @@ function hideOnline() {
 }
 /* Display All Channels */
 allBtn.addEventListener('click', showAll);
-function showAll(){
+
+function showAll() {
   allBtn.classList.add("active");
   onlineSpace.classList.remove("hidden");
   offlineSpace.classList.remove("hidden");
   offlineBtn.classList.remove("active");
   onlineBtn.classList.remove("active");
- 
+
 }
 /* Search Bar */
-search.addEventListener('onkeydown',searchQuery);
+searchText.addEventListener('submit', searchQuery);
+
 function searchQuery() {
-  event.preventDefault();
-  if(event.key === 'Enter') {
-    alert(search.value);     
-}
+  event.preventDefault()
+  console.log(search.value)
 }
