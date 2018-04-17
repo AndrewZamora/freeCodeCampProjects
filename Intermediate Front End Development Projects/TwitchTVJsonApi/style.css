@@ -91,12 +91,7 @@ button:focus {
     background: red;
 }
 
-.offline-box {
-    padding: 1em;
-    border: 0.09rem #6441A5 solid;
-}
-
-.online-box {
+.box {
     padding: 1em;
     border: 0.09rem #6441A5 solid;
 }
@@ -117,11 +112,7 @@ button:focus {
     margin: auto;
 }
 
-.offline-box h3 {
-    margin-top: 0;
-}
-
-.online-box h3 {
+.box h3 {
     margin-top: 0;
 }
 
