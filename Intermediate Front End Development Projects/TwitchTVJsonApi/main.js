@@ -31,14 +31,14 @@ function getStreams() {
     getData(stream, checkOnline);
   }
 }
-
+/* Displays online channels */
 function checkOnline(data) {
   if (data.stream == null) {
     /* If the user is offline push user name to offlineChannels array*/
     offlineChannels.push(data._links.self.slice(37 - self.length));
     getUsers();
   } else {
-    onlineSpace.innerHTML += '<div class="box"><div class="box-text"><div><a href="' + data.stream.channel.url + '" target="_blank" ><img src="' + data.stream.channel.logo + '" alt="Channel Logo"></a><div class="status-circle online-color"></div></div><div><h3>' + data.stream.channel.display_name + '</h3><p>Streaming: ' + data.stream.game + '</p></div></div><div class="preview"><img src="' + data.stream.preview.large + '"></div></div>';
+    onlineSpace.innerHTML += '<div class="box"><div class="box-text"><div><a href="' + data.stream.channel.url + '" target="_blank" ><img src="' + data.stream.channel.logo + '" alt="Channel Logo"></a><div class="status-circle online-color"></div></div><div><h3>' + data.stream.channel.display_name + '</h3></div></div><div class="preview"><img src="' + data.stream.preview.large + '"><h5>Currently Streaming: '+ data.stream.channel.game +'</h5><p>Viewers: '+data.stream.viewers+'</p></div></div>';
   }
 }
 getStreams();
@@ -50,7 +50,7 @@ function getUsers() {
   users = urlUsers + offlineChannels.pop();
   getData(users, showUsers);
 }
-
+/* Displays offline channels */
 function showUsers(data) {
   offlineSpace.innerHTML += '<div class="box"><div class="box-text"><div><a href="https://www.twitch.tv/' + data.display_name + '" target="_blank"><img src="' + data.logo + '"></a><div class="status-circle offline-color"></div></div><div><h3>' + data.display_name + '</h3><p>Currently Offline.</p></div></div>';
 }
