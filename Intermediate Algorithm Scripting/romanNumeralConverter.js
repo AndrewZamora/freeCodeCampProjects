@@ -1,25 +1,19 @@
 // Roman Numeral Converter
 // Convert the given number into a roman numeral.
 // All roman numerals answers should be provided in upper-case.
-var sub = ["IV", "IX", "XL", "XC", "CD", "CM"]
-//4,9,40,90,400,900
-var romanNum = ["I", "V", "X", "L", "C", "D", "M"];
-//1,5,10,50,100,500,1000
+var romanNum = ["I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"];
+var decimal = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
+//1,4,5,9,10,40,50,90,100,400,500,900,1000
 
 function convertToRoman(num) {
-    var result = [];
-    for (var i = 0; i < num; i++) {
-        if(i == 3 || i == 4){
-            result.push(romanNum[1]);
-        }
-        result.push(romanNum[0]);
+    if (decimal.indexOf(num) !== -1) {
+        return romanNum[decimal.indexOf(num)]
     }
-
-    return result.join('');
 }
 
-console.log(convertToRoman(5));
+console.log(convertToRoman());
 
+// Test Examples are provided below:
 //    convertToRoman(2) should return "II".
 //     convertToRoman(3) should return "III".
 //    convertToRoman(4) should return "IV".

@@ -18,7 +18,7 @@ function chunkArrayInGroups(arr, size) {
 console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4));
 
 
-// Test Example are provided below:
+// Test Examples are provided below:
 
 // chunkArrayInGroups(["a", "b", "c", "d"], 2) should return [["a", "b"], ["c", "d"]].
 // chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3) should return [[0, 1, 2], [3, 4, 5]].
