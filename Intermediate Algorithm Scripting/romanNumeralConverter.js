@@ -1,17 +1,39 @@
 // Roman Numeral Converter
 // Convert the given number into a roman numeral.
 // All roman numerals answers should be provided in upper-case.
-var romanNum = ["I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"];
-var decimal = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
-//1,4,5,9,10,40,50,90,100,400,500,900,1000
+var romanNums = ["I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"];
+var decimals = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
+// 1,4,5,9,10,40,50,90,100,400,500,900,1000
 
 function convertToRoman(num) {
-    if (decimal.indexOf(num) !== -1) {
-        return romanNum[decimal.indexOf(num)]
+   
+    var result = [];
+    // if (decimal.indexOf(num) !== -1) {
+    //     return romanNums[decimals.indexOf(num)]
+    // }
+    function getMatch (val) {
+        return val/num < 1;
     }
+    var newArray = decimals.filter(getMatch);
+    console.log(newArray[newArray.length-1]);
+
+    // if (num < 4){
+    //     for (let i = 0; i < num; i++){
+    //         result.push(romanNums[0]);
+    //     }
+    //      return result.join("");   
+    //     }
 }
 
-console.log(convertToRoman());
+console.log(convertToRoman(700));
+
+
+
+//THIS WILL MAKE MY NUM TO A SPLIT ARRAY
+// var newNum = num.toString();
+//         var seperated = newNum.split("");
+//         var backToArray = JSON.parse("["+ seperated +"]");
+//         return backToArray;
 
 // Test Examples are provided below:
 //    convertToRoman(2) should return "II".
