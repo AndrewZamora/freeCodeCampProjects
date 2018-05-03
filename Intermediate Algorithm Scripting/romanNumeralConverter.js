@@ -6,28 +6,35 @@ var decimals = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
 // 1,4,5,9,10,40,50,90,100,400,500,900,1000
 
 function convertToRoman(num) {
-   
+    var changingNum = num;
     var result = [];
-    // if (decimal.indexOf(num) !== -1) {
-    //     return romanNums[decimals.indexOf(num)]
-    // }
-    function getMatch (val) {
-        return val/num < 1;
-    }
-    var newArray = decimals.filter(getMatch);
-    console.log(newArray[newArray.length-1]);
+    var brokenDecimal = [];
 
-    // if (num < 4){
-    //     for (let i = 0; i < num; i++){
-    //         result.push(romanNums[0]);
-    //     }
-    //      return result.join("");   
-    //     }
+    for (var i = 0; i < 7 ; i++) {
+        function getMatch(val) {
+            return val / changingNum <= 1;
+        }
+        var newArray = decimals.filter(getMatch);
+        brokenDecimal.push(newArray[newArray.length - 1]);
+        console.log(changingNum);
+        changingNum -= brokenDecimal[i];
+    }
+
+    console.log(brokenDecimal);
 }
 
-console.log(convertToRoman(700));
+console.log(convertToRoman(1567));
 
+// if (decimal.indexOf(num) !== -1) {
+//     return romanNums[decimals.indexOf(num)]
+// }
 
+// if (num < 4){
+//     for (let i = 0; i < num; i++){
+//         result.push(romanNums[0]);
+//     }
+//      return result.join("");   
+//     }
 
 //THIS WILL MAKE MY NUM TO A SPLIT ARRAY
 // var newNum = num.toString();
