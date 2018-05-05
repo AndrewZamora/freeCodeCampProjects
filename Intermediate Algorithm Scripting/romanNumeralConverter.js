@@ -7,40 +7,33 @@ var decimals = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
 
 function convertToRoman(num) {
     var changingNum = num;
+    var splitDecNum = [];
     var result = [];
-    var brokenDecimal = [];
-
-    for (var i = 0; i < 7 ; i++) {
-        function getMatch(val) {
-            return val / changingNum <= 1;
+    // Find the closest Decimal Number to value
+    function closestDecNum(val) {
+        return val / changingNum <= 1;
+    }
+    // Split and gather numbers based on their closest decimal number 
+    for (var i = 0; i < num; i++) {
+        // Create array of closest decimal numbers
+        var newArray = decimals.filter(closestDecNum);
+        splitDecNum.push(newArray[newArray.length - 1]);
+        changingNum -= splitDecNum[i];
+        if (changingNum === 0) {
+            break;
         }
-        var newArray = decimals.filter(getMatch);
-        brokenDecimal.push(newArray[newArray.length - 1]);
-        console.log(changingNum);
-        changingNum -= brokenDecimal[i];
+    }
+    // Use split decimal nums to find roman numerals
+    for (var j = 0; j < splitDecNum.length; j++) {
+        if (decimals.indexOf(splitDecNum[j]) !== -1) {
+            result.push(romanNums[decimals.indexOf(splitDecNum[j])]);
+        }
     }
 
-    console.log(brokenDecimal);
+    return result.join("");
 }
 
-console.log(convertToRoman(1567));
-
-// if (decimal.indexOf(num) !== -1) {
-//     return romanNums[decimals.indexOf(num)]
-// }
-
-// if (num < 4){
-//     for (let i = 0; i < num; i++){
-//         result.push(romanNums[0]);
-//     }
-//      return result.join("");   
-//     }
-
-//THIS WILL MAKE MY NUM TO A SPLIT ARRAY
-// var newNum = num.toString();
-//         var seperated = newNum.split("");
-//         var backToArray = JSON.parse("["+ seperated +"]");
-//         return backToArray;
+console.log(convertToRoman(1212));
 
 // Test Examples are provided below:
 //    convertToRoman(2) should return "II".
