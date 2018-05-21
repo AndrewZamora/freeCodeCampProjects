@@ -4,21 +4,32 @@
 // For example, if the first argument is [{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], and the second argument is { last: "Capulet" }, then you must return the third object from the array (the first argument), because it contains the property and its value, that was passed on as the second argument.
 
 function whatIsInAName(collection, source) {
-    // What's in a name?
-    var arr = [];
-    // Only change code below this line
-    
-    
-    // Only change code above this line
-    return arr;
+  // What's in a name?
+  var arr = [];
+  // Only change code below this line
+  // console.log(Object.keys(source));
+  // console.log(Object.keys(collection[0]));
+  var keyValue = Object.keys(source);
+  // console.log(source[keyValue]);
+  for (var i = 0; i < collection.length; i++) {
+    if (collection[i][keyValue] === source[keyValue]) {
+      arr.push(collection[i]);
+    }
+
   }
-  
-  whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
-  
+  // Only change code above this line
+  return arr;
+}
+
+console.log(whatIsInAName([{ "a": 1 }, { "a": 1 }, { "a": 1, "b": 2 }], { "a": 1 }));
+
 
 
 //Test Cases: 
 // whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }) should return [{ first: "Tybalt", last: "Capulet" }].
+
 // whatIsInAName([{ "a": 1 }, { "a": 1 }, { "a": 1, "b": 2 }], { "a": 1 }) should return [{ "a": 1 }, { "a": 1 }, { "a": 1, "b": 2 }].
+
 // whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 }) should return [{ "a": 1, "b": 2 }, { "a": 1, "b": 2, "c": 2 }].
+
 // whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "c": 2 }) should return [{ "a": 1, "b": 2, "c": 2 }].
