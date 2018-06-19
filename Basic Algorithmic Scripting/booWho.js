@@ -5,10 +5,13 @@
 // Boolean primitives are true and false.
 
 function booWho(bool) {
-    return bool;
+    if(typeof(bool) === "boolean"){
+      return true;
+    }else {
+      return false;
+    }
   }
-  
-  console.log(booWho(null));
+  console.log(booWho([1, 2, 3]));
 
 // Test Cases:
 
