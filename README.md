@@ -33,7 +33,5 @@ Return Largest Numbers in Arrays- largestNumArray.js
 * [ ] Everything Be True
 * [ ] Arguments Optional
 
-
-## FreeCodeCampBeta
 diffTwoArrays.js
 sumAllNumberInARange.js
