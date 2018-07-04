@@ -8,7 +8,15 @@
 // Return the resulting array. The input arrays should remain the same after the function runs.
 
 function frankenSplice(arr1, arr2, n) {
-  return arr2;
+    let arr1Copy = arr1.slice(0,arr1.length);
+    let arr2Copy = arr2.slice(0,arr2.length);
+    let whereToPut = n; 
+    for (let i = 0; i < arr1Copy.length; ++i) {
+        arr2Copy.splice(whereToPut,0,arr1Copy[i]);
+        // Stops next arr1Copy[i] from being sent to the front
+        whereToPut += 1;
+    }
+  return arr2Copy;
 }
 
 console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
