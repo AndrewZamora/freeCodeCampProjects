@@ -10,6 +10,7 @@
 function frankenSplice(arr1, arr2, n) {
     let arr1Copy = arr1.slice(0,arr1.length);
     let arr2Copy = arr2.slice(0,arr2.length);
+    // Copies of Arrays 
     let whereToPut = n; 
     for (let i = 0; i < arr1Copy.length; ++i) {
         arr2Copy.splice(whereToPut,0,arr1Copy[i]);
