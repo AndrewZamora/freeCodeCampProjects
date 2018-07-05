@@ -6,17 +6,20 @@
 function whatIsInAName(collection, source) {
   // What's in a name?
   var arr = [];
-  var propValue = Object.keys(source);
-  // console.log(collection);
+  var sourceValues = Object.keys(source);
+  var collectionValues = [];
   //  console.log(source[propValue]);
   //  console.log(collection[i][propValue]);
   // console.log(source[propValue]);
   // console.log(propValue.length);
+  // console.log(propValue);
 
   for (var i = 0; i < collection.length; i++) {
-    console.log(collection);
-    console.log(collection.hasOwnProperty(propValue[0]));
+    collectionValues.push(Object.keys(collection[i])); 
   }
+
+  console.log(collectionValues);
+
   // Only change code above this line
   return arr;
 }
