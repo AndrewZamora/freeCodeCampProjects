@@ -5,46 +5,18 @@
 
 function whatIsInAName(collection, source) {
   // What's in a name?
-  var arr = [];
-  var sourceKeys = Object.keys(source).toString();
-  var collectionKeys = [];
-  var sourceValues = Object.values(source);
-
-  for (var i = 0; i < collection.length; i++) {
-
-
-    console.log(sourceValues[0])
-    // console.log(collection[i].hasOwnProperty(sourceKeys));
-    // if(collection[i].hasOwnProperty(sourceKeys[i]) && Object.values(collection[i])){
-    //   arr.push(collection[i]);
-    // }
-  }
-
+  let arr = [];
+  let collectionCopy = collection.slice();
+  let sourceKeys = Object.keys(source);
+  let sourceValues = Object.values(source);
   // Only change code above this line
+  let filteredCollect = collectionCopy.filter(collect => collect.hasOwnProperty("apple"));
+  console.log(filteredCollect)
   return arr;
 }
 
-console.log(whatIsInAName([{
-  first: "Romeo",
-  last: "Montague"
-}, {
-  first: "Mercutio",
-  last: null
-}, {
-  first: "Tybalt",
-  last: "Capulet"
-}], {
-  last: "Capulet"
-}));
+console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 }));
 
-
-
-//  if(source[propValue] === collection[i][propValue] && propValue.length <= 1 ){
-//       arr.push(collection[i]);
-//     } 
-//     if(collection[i][propValue[i]] === source[propValue[i]] && propValue.length > 1){
-//       arr.push(collection[i]);
-//     }
 
 
 
