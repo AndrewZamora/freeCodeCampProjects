@@ -5,17 +5,20 @@
 
 function whatIsInAName(collection, source) {
   // What's in a name?
-  let arr = [];
+  let arr;
   let collectionCopy = collection.slice();
   let sourceKeys = Object.keys(source);
   let sourceValues = Object.values(source);
   // Only change code above this line
-  let filteredCollect = collectionCopy.filter(collect => collect.hasOwnProperty("apple"));
-  console.log(filteredCollect)
-  return arr;
+  let filteredCollect= [];
+  for (let i = 0; i < collection.length-2; i++) {
+    filteredCollect.push(collectionCopy.filter(collect => collect.hasOwnProperty("c")))
+  }
+  
+  return filteredCollect ;
 }
 
-console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 }));
+console.log(whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 }));
 
 
 
