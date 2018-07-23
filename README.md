@@ -1,6 +1,8 @@
 # freeCodeCampProjects
 This is a collection of my work at [freeCodeCamp](https://www.freecodecamp.org "freeCodeCamp").
 
+The following below refers to the projects on the old freeCodeCamp site. This repository will be updated soon to reflect the changes of the new site.
+
 ## Basic Algorithm Scripting
 Return Largest Numbers in Arrays- largestNumArray.js
 
