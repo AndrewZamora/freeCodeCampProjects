@@ -5,21 +5,26 @@
 
 function whatIsInAName(collection, source) {
   // What's in a name?
-  let arr;
-  let collectionCopy = collection.slice();
+
   let sourceKeys = Object.keys(source);
-  let sourceValues = Object.values(source);
-  // Only change code above this line
-  let filteredCollect= [];
-  for (let i = 0; i < collection.length-2; i++) {
-    filteredCollect.push(collectionCopy.filter(collect => collect.hasOwnProperty("c")))
+
+  for (let i = 0; i < 1; i++) {
+     collection.push(collection.filter(collect => collect.hasOwnProperty(sourceKeys[i]) == false))
+
   }
-  
-  return filteredCollect ;
+
+  return collection;
 }
 
-console.log(whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 }));
+console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }))
 
+
+// Looks like this can be completed with:
+// For Loops
+// Array.prototype.filter()
+// Object.hasOwnProperty()
+
+// collectionCopy.filter(collect => collect.hasOwnProperty(sourceKeys[i]))
 
 
 
