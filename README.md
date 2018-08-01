@@ -3,6 +3,8 @@ This is a collection of my work at [freeCodeCamp](https://www.freecodecamp.org "
 
 The following below refers to the projects on the old freeCodeCamp site. This repository will be updated soon to reflect the changes of the new site.
 
+## Applied Visual Design Projects
+
 ## Basic Algorithm Scripting
 Return Largest Numbers in Arrays- largestNumArray.js
 
@@ -35,5 +37,5 @@ Return Largest Numbers in Arrays- largestNumArray.js
 * [ ] Everything Be True
 * [ ] Arguments Optional
 
-diffTwoArrays.js
-sumAllNumberInARange.js
+## Introduction to the JavaScript Algorithms and Data Structures Projects
+
