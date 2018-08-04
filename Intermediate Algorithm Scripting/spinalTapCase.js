@@ -1,12 +1,12 @@
 function spinalCase(str) {
-    let newStr = str.toLowerCase();
-    let res = newStr.replace(/\s|_/g,"-");
+  //Find, Combine, and lowercase words
+  let newStr = str.match(/[a-z]+|([A-Z])[a-z]+|[^\s-?_](?!-).*(\w+)/g).join('-').toLowerCase();
+  return newStr;
+}
 
-    return res;
-  }
-  
-  console.log(spinalCase('The_Andy_Griffith_Show'));
+console.log(spinalCase('The_Andy_Griffith_Show'));
 
+// Test Examples are provided below:
 //   spinalCase("This Is Spinal Tap") should return "this-is-spinal-tap".
 // spinalCase("thisIsSpinalTap") should return "this-is-spinal-tap".
 // Passed
