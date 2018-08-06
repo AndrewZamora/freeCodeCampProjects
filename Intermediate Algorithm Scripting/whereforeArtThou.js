@@ -4,22 +4,30 @@
 // For example, if the first argument is [{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], and the second argument is { last: "Capulet" }, then you must return the third object from the array (the first argument), because it contains the property and its value, that was passed on as the second argument.
 
 function whatIsInAName(collection, source) {
-  // What's in a name?
-  let arr;
-  let collectionCopy = collection.slice();
   let sourceKeys = Object.keys(source);
-  let sourceValues = Object.values(source);
-  // Only change code above this line
-  let filteredCollect= [];
-  for (let i = 0; i < collection.length-2; i++) {
-    filteredCollect.push(collectionCopy.filter(collect => collect.hasOwnProperty("c")))
+  let sourceVals = Object.values(source).toString();
+  let result = [];
+
+  for (let i = 0; i < collection.length; i++) {
+
+    if (collection[i].hasOwnProperty(sourceKeys) && Object.values(collection[i]).includes(sourceVals) == true) {
+      result.push(collection[i]);
+    }
+    
   }
-  
-  return filteredCollect ;
+
+  return result;
 }
 
-console.log(whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 }));
+console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }))
 
+
+// Looks like this can be completed with:
+// For Loops
+// Array.prototype.filter()
+// Object.hasOwnProperty()
+
+// collectionCopy.filter(collect => collect.hasOwnProperty(sourceKeys[i]))
 
 
 
