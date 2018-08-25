@@ -9,9 +9,15 @@
   "author": "Andrew Zamora",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1",
+    "browser-sync": "^2.24.6",
+    "gulp": "^4.0.0",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-sass": "^3.1.0"
+  },
+  "dependencies": {
+    "debug": "^3.1.0",
+    "lodash": "^4.17.10",
+    "mime": "^2.3.1",
+    "mixin-deep": "^2.0.0"
   }
 }
