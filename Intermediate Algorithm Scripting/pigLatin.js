@@ -12,21 +12,21 @@ function translatePigLatin(str) {
     return str + "ay";
   }
   //Check if first letter is a vowel
-  let newStr = str.match(/^[aeiou]/gi)
-  if (newStr) {
+  let hasVowel = str.match(/^[aeiou]/gi)
+  if (hasVowel) {
    let result = str + 'way';
     return result
   }
   //Check if first letter is a consonant
   //The cut till the first vowel and combine on the back
-  if (newStr === null) {
+  if (hasVowel === null) {
     let vowel = (/[aeiou]/g).exec(str);
     let secondHalf = str.substring(vowel.index, str.length);
     let firstHalf = str.substring(0,vowel.index)
     return secondHalf + firstHalf +"ay";
   }
 
-  return newStr;
+  return hasVowel;
 }
 
 console.log(translatePigLatin("california"));
