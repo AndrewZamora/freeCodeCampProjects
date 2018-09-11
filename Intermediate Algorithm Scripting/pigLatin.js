@@ -6,15 +6,19 @@
 // Input strings are guaranteed to be English words in all lowercase.
 
 function translatePigLatin(str) {
+  //Check for no vowels
   let noVowel = /[aeiou]/gi.exec(str);
   if(noVowel === null){
-    return str + 'ay';
+    return str + "ay";
   }
+  //Check if first letter is a vowel
   let newStr = str.match(/^[aeiou]/gi)
   if (newStr) {
    let result = str + 'way';
     return result
   }
+  //Check if first letter is a consonant
+  //The cut till the first vowel and combine on the back
   if (newStr === null) {
     let vowel = (/[aeiou]/g).exec(str);
     let secondHalf = str.substring(vowel.index, str.length);
@@ -25,7 +29,8 @@ function translatePigLatin(str) {
   return newStr;
 }
 
-console.log(translatePigLatin("california"))
+console.log(translatePigLatin("california"));
+
 // Test Cases:
 // translatePigLatin("california") should return "aliforniacay".
 // translatePigLatin("paragraphs") should return "aragraphspay".
