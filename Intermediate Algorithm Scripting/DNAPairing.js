@@ -9,7 +9,25 @@
 
 // The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.
 function pairElement(str) {
-    return str;
+    let results = [...str];
+    //Turn str into an array
+    let array = [];
+    //Check for matching pair and push
+    results.forEach(result => {
+        if(result === "A"){
+            array.push([result , "T"]);
+        }
+        if(result === "T"){
+            array.push([result , "A"]);
+        }
+        if(result === "G"){
+            array.push([result, "C"]);
+        }
+        if(result === "C"){
+            array.push([result , "G"]);
+        }   
+    });
+    return array
   }
 
 console.log(pairElement("GCG"));
