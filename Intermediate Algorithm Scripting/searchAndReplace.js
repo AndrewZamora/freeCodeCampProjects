@@ -11,7 +11,18 @@
 // Preserve the case of the first character in the original word when you are replacing it. For example if you mean to replace the word "Book" with the word "dog", it should be replaced as "Dog"
 
 function myReplace(str, before, after) {
-  return str;
+    let newWord = after;
+    //If before is capitalized then make after capitalized
+    if (before.charAt(0) == before.charAt(0).toUpperCase()) {
+        let cap = after.charAt(0).toUpperCase() + after.substring(1);
+        newWord = cap;
+    }
+    //Cut up str based on index of before
+    let oldStr = str.indexOf(before);
+    let frontHalf = str.substring(0, oldStr);
+    let backHalf = str.substring(oldStr + before.length, str.length);
+    //Combine halves and newWord based on after
+    return frontHalf + newWord + backHalf;
 }
 
-console.log("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
+console.log(myReplace("Let us go to the store", "store", "mall"));
