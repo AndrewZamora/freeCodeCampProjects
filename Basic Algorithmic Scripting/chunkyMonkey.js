@@ -5,7 +5,7 @@ function chunkArrayInGroups(arr, size) {
   var newArr = [];
   // Container for right slice value which starts at the number provided by size
   var newSize = 0;
-  //Interate based on number provided by size
+  //Iterate based on number provided by size
   for (var i = 0; i < arr.length; i+=size) {
 //Creates slice right value
     newSize += size;
