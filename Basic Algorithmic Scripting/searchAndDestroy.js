@@ -4,7 +4,7 @@
 function destroyer(arr) {
   //Make arguments into an Array
   var imARealArray = arr.slice.call(arguments);
-  //Cut off the values that we will seach for
+  //Cut off the values that we will search for
   var target = imARealArray.slice(1, imARealArray.length);
   //filter out the values we are targeting
   var filtered = imARealArray[0].filter(removeVal);
