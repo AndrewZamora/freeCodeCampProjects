@@ -2,8 +2,10 @@
 // Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
 
 function convertHTML(str) {
+    //Make an array 
     let array = [...str];
     let result = [];
+    //Check for special characters 
     array.forEach(letter => {
         if (letter === '&') {
             result.push("&amp;");
@@ -27,6 +29,7 @@ function convertHTML(str) {
         }
         result.push(letter)
     })
+    //Combine array
     return result.join('');
 }
 console.log(convertHTML("abc"));
