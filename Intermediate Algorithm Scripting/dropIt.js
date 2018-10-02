@@ -4,11 +4,17 @@
 // Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
 
 function dropElements(arr, func) {
-    // Drop them elements.
-    return arr;
+    //Set count
+    let n = 0;
+    //Find index to cut array
+    while (n < arr.length && !func(arr[n])) {
+        n++;
+    }
+    //Cut array
+    return arr.slice(n);
 }
 
-console.log(dropElements([1, 2, 3], function (n) { return n < 3; }));
+console.log(dropElements([1, 2, 3], function (n) { return n > 0; }));
 
 // Test Cases:
 // dropElements([1, 2, 3, 4], function(n) {return n >= 3;}) should return [3, 4].
