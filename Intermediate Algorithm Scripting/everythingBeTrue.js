@@ -1,5 +1,12 @@
 function truthCheck(collection, pre) {
-    return pre;
-  }
+    let result = true;
+    //Check if truthy
+    collection.forEach(element => {
+        if (!element[pre] === true) {
+            result = false;
+        }
+    });
+    return result;
+}
 
-console.log(truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex"));
+console.log(truthCheck([{ "name": "Pete", "onBoat": true }, { "name": "Repeat", "onBoat": true, "alias": "Repete" }, { "name": "FastFoward", "onBoat": true }], "onBoat"));
