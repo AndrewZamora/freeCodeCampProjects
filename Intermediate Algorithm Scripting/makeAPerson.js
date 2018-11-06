@@ -5,16 +5,35 @@
 // The methods that take an argument must accept only one argument and it has to be a string.
 // These methods must be the only available means of interacting with the object.
 
-var Person = function(firstAndLast) {
-    // Complete the method below and implement the others similarly
-    this.getFullName = function() {
-      return "";
-    };
-    return firstAndLast;
+const Person = function (firstAndLast) {
+  let fullName = firstAndLast;
+  let nameArray = fullName.split(' ');
+  let firstName = nameArray[0];
+  let lastName = nameArray[1];
+  this.getFirstName = function () {
+    return firstName;
   };
+  this.getLastName = function () {
+    return lastName;
+  };
+  this.getFullName = function () {
+    return `${firstName} ${lastName}`;
+  };
+  this.setFirstName = function (first) {
+   firstName = first;
+  };
+  this.setLastName = function (last) {
+   lastName = last;
+  };
+  this.setFullName = function (firstAndLast) {
+    let rename = firstAndLast.split(' ');
+    firstName = rename[0];
+    lastName = rename[1];
+  };
+  return firstAndLast;
+};
 
-  var bob = new Person('Bob Ross');
-  bob.getFullName();
+var bob = new Person('Bob Ross')
 
 // Test Cases:
 // Object.keys(bob).length should return 6.
