@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Label extends Component {
   render() {
     return (
-      <div id={this.props.id}>
+      <div id={this.props.id} style={styles.container}>
         {this.props.children}
       </div>
     );
@@ -11,3 +11,10 @@ class Label extends Component {
 }
 
 export default Label;
+
+const styles = {
+  container: {
+      display: 'flex',
+      justifyContent:'center'
+  }
+}
