@@ -6,23 +6,16 @@ class Clock extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            hour: '00',
-            min: '00',
-            sec: '00',
-            time: { hour: 0, min: 0, sec: 0 }
+            time: { hour: 0, min: 0, sec: 0 },
+            units: ['hour', 'min', 'sec'],
+            interval: ''
         };
     }
     handleInput = input => {
-        const addZero = i => {
-            if (i < 10) { i = "0" + i; }
-            return i;
-        }
-        const units = ['hour', 'min', 'sec'];
+        const { units } = this.state;
         units.forEach(unit => {
             if (input['unit'].includes(unit)) {
-                let paddedValue = addZero(input.value);
                 this.setState(({
-                    [input.unit]: paddedValue,
                     time: {
                         ...this.state.time,
                         [input.unit]: input.value
@@ -31,34 +24,41 @@ class Clock extends Component {
             }
         })
     }
-    countDown = () => {
-        let hour = this.state.time.hour;
-        let min = this.state.time.min;
-        let sec = this.state.time.sec;
-        if(hour > 0 && min=== 59 ){
-            hour -= 1
-        }
-        if (sec === 59) {
-            min -= 1;
-        }
-        if (sec === 0) {
-            sec = 60;
-         }
+    timer = () => {
+        let time = Object.assign({},this.state.time);
+        let { hour, min, sec } = time;
+        if(hour > 0 && sec < 1 && min < 1){hour -= 1 }
+        if (min === 59) { hour -= 1 }
+        if (hour === 0 && sec === 0) { min -= 1; }
+        if (sec === 0) { sec = 60; }
         sec -= 1;
+        if(hour+min+sec=== 0){clearInterval(this.state.interval);}
         this.setState(({
-            time:{
+            time: {
                 hour: hour,
-                min:min,
-                sec:sec
+                min: min,
+                sec: sec
             }
-        }), console.log(this.state.time))
+        }))
+    }
+    start = () => {
+        this.setState(({
+            interval: setInterval(this.timer, 100)
+        }))
+    }
+    pause = () => {
+        clearInterval(this.state.interval);
+    }
+    addZero = i => {
+        if (i < 10) { i = "0" + i; }
+        return i;
     }
     render() {
-        const { status, hour, min, sec } = this.state;
+        const time = Object.keys(this.state.time).map(i => this.addZero(this.state.time[i]));
         return (
             <div>
-                <h2>{status}</h2>
-                <p style={styles.p}>{`${hour}:${min}:${sec}`}</p>
+                <h2>{this.state.status}</h2>
+                <p style={styles.p}>{`${time[0]}:${time[1]}:${time[2]}`}</p>
                 <Label id="break-label">Break Length</Label>
                 <div style={styles.inputContainer}>
                     <Input max={99} unit="hour" func={(event) => this.handleInput(event)}></Input>
@@ -66,7 +66,8 @@ class Clock extends Component {
                     <Input max={59} unit="sec" func={(event) => this.handleInput(event)}></Input>
                 </div>
                 <Label id="session-label">Session Length</Label>
-                <button onClick={() => this.countDown()}>Start</button>
+                <button onClick={() => this.start()}>Start</button>
+                <button onClick={() => this.pause()}>Pause</button>
             </div>
         );
     }
