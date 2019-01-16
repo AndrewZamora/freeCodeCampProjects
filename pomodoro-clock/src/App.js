@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Label from './components/Label';
 import Clock from './components/Clock';
 
 class App extends Component {
