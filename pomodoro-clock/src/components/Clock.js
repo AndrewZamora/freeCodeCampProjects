@@ -25,14 +25,14 @@ class Clock extends Component {
         })
     }
     timer = () => {
-        let time = Object.assign({},this.state.time);
+        let time = Object.assign({}, this.state.time);
         let { hour, min, sec } = time;
-        if(hour > 0 && sec < 1 && min < 1){hour -= 1 }
+        if (hour > 0 && sec < 1 && min < 1) { hour -= 1 }
         if (min === 59) { hour -= 1 }
         if (hour === 0 && sec === 0) { min -= 1; }
         if (sec === 0) { sec = 60; }
         sec -= 1;
-        if(hour+min+sec=== 0){clearInterval(this.state.interval);}
+        if (hour + min + sec === 0) { clearInterval(this.state.interval); }
         this.setState(({
             time: {
                 hour: hour,
@@ -48,6 +48,17 @@ class Clock extends Component {
     }
     pause = () => {
         clearInterval(this.state.interval);
+    }
+    reset = () => {
+        clearInterval(this.state.interval);
+        this.setState(({
+            time: {
+                hour: 0,
+                min: 0,
+                sec: 0
+            },
+            interval:''
+        }))
     }
     addZero = i => {
         if (i < 10) { i = "0" + i; }
@@ -68,6 +79,7 @@ class Clock extends Component {
                 <Label id="session-label">Session Length</Label>
                 <button onClick={() => this.start()}>Start</button>
                 <button onClick={() => this.pause()}>Pause</button>
+                <button onClick={() => this.reset()}>Reset</button>
             </div>
         );
     }
