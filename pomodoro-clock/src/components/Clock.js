@@ -57,7 +57,7 @@ class Clock extends Component {
                 min: 0,
                 sec: 0
             },
-            interval:''
+            interval: ''
         }))
     }
     addZero = i => {
@@ -76,10 +76,12 @@ class Clock extends Component {
                     <Input max={59} unit="min" func={(event) => this.handleInput(event)}></Input>
                     <Input max={59} unit="sec" func={(event) => this.handleInput(event)}></Input>
                 </div>
+                <div style={styles.buttonsContainer}>
+                    <button onClick={() => this.start()}>Start</button>
+                    <button onClick={() => this.pause()}>Pause</button>
+                    <button onClick={() => this.reset()}>Reset</button>
+                </div>
                 <Label id="session-label">Session Length</Label>
-                <button onClick={() => this.start()}>Start</button>
-                <button onClick={() => this.pause()}>Pause</button>
-                <button onClick={() => this.reset()}>Reset</button>
             </div>
         );
     }
@@ -94,5 +96,8 @@ const styles = {
     inputContainer: {
         display: 'flex',
         justifyContent: 'center'
+    },
+    buttonsContainer: {
+        display: 'flex'
     }
 }
