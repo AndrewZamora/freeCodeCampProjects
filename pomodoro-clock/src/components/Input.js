@@ -41,11 +41,13 @@ class Input extends Component {
     }
     render() {
         return (
-            <div style={styles.container}>
-                <div>{this.props.unit}</div>
-                <button onClick={() => this.inc()}>+</button>
-                <div style={styles.div}>{this.state.value}</div>
-                <button onClick={() => this.dec()}>-</button>
+            <div>
+                <div style={styles.container}>
+                    <button id={this.props.incId} onClick={() => this.inc()}>+</button>
+                    <div style={styles.value}>{this.state.value}</div>
+                    <button id={this.props.decId} onClick={() => this.dec()}>-</button>
+                </div>
+                <div style={styles.unit}>{this.props.unit}</div>
             </div>
         );
     }
@@ -54,14 +56,15 @@ class Input extends Component {
 export default Input;
 
 const styles = {
-    div: {
+    value: {
         padding: '0 1em'
     },
     container: {
         display: 'flex',
         justifyContent: 'center',
-        flexDirection: 'column',
         alignItems: 'center',
-        width: '2em'
     },
+    unit: {
+        textAlign: 'center'
+    }
 }

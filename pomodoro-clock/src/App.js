@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Clock from './components/Clock';
 import Input from './components/Input';
+import Label from './components/Label';
 
 class App extends Component {
   constructor(props) {
@@ -57,8 +58,14 @@ class App extends Component {
       <div style={styles.container}>
         <Clock time={this.state.timer} />
         <div style={styles.inputContainer}>
-          <Input max={59} unit="min" func={(event) => this.handleSessionInput(event)}></Input>
-          <Input max={59} unit="min" func={(event) => this.handleBreakInput(event)}></Input>
+          <div>
+            <Label id={`session-label`}>Session:</Label>
+            <Input decId={`session-decrement`} incId={`session-increment`} max={59} unit="min" func={(event) => this.handleSessionInput(event)}></Input>
+          </div>
+          <div>
+            <Label id={`break-label`}>Break:</Label>
+            <Input decId={`break-decrement`} incId={`break-increment`} max={59} unit="min" func={(event) => this.handleBreakInput(event)}></Input>
+          </div>
         </div>
         <button onClick={() => this.start()}>Start</button>
         <button onClick={() => this.pause()}>Pause</button>

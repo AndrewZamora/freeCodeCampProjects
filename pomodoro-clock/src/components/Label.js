@@ -14,7 +14,6 @@ export default Label;
 
 const styles = {
   container: {
-      display: 'flex',
-      justifyContent:'center'
+     textAlign:'center'
   }
 }
