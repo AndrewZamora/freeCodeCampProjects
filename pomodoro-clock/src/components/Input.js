@@ -4,7 +4,7 @@ class Input extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 0,
+            value: this.props.default,
             unit: this.props.unit,
             max: this.props.max,
             over: false
@@ -44,7 +44,7 @@ class Input extends Component {
             <div>
                 <div style={styles.container}>
                     <button id={this.props.incId} onClick={() => this.inc()}>+</button>
-                    <div style={styles.value}>{this.state.value}</div>
+                    <div id={this.props.valId} style={styles.value}>{this.state.value}</div>
                     <button id={this.props.decId} onClick={() => this.dec()}>-</button>
                 </div>
                 <div style={styles.unit}>{this.props.unit}</div>
