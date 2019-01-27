@@ -4,7 +4,7 @@ import Input from './Input';
 class Clock extends Component {
     render() {
         return (
-            <div>
+            <div style={{textAlign:'center'}}>
                 {this.props.time}
             </div>
         );
