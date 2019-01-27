@@ -8,11 +8,11 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      breakLength: 2,
-      sessionLength: 5,
+      breakLength: 5,
+      sessionLength: 25,
       interval: '',
       switchTime: false,
-      timer: 5
+      timer: 25
     };
   }
   countDown = () => {
@@ -60,11 +60,23 @@ class App extends Component {
         <div style={styles.inputContainer}>
           <div>
             <Label id={`session-label`}>Session:</Label>
-            <Input decId={`session-decrement`} incId={`session-increment`} max={59} unit="min" func={(event) => this.handleSessionInput(event)}></Input>
+            <Input decId={`session-decrement`}
+            incId={`session-increment`}
+            valId={`session-length`}
+            default={25}
+            max={59}
+            unit="min"
+            func={(event) => this.handleSessionInput(event)}></Input>
           </div>
           <div>
             <Label id={`break-label`}>Break:</Label>
-            <Input decId={`break-decrement`} incId={`break-increment`} max={59} unit="min" func={(event) => this.handleBreakInput(event)}></Input>
+            <Input decId={`break-decrement`}
+             incId={`break-increment`}
+             valId={`break-length`}
+             default={5}
+             max={59}
+             unit="min"
+             func={(event) => this.handleBreakInput(event)}></Input>
           </div>
         </div>
         <button onClick={() => this.start()}>Start</button>
