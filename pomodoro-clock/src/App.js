@@ -16,8 +16,8 @@ class App extends Component {
     };
   }
   countDown = () => {
-    this.setState(({
-      timer: this.state.timer -= 1,
+    this.setState(prevState => ({
+      timer: prevState.timer - 1
     }));
     if (this.state.timer < 0 && !this.state.switchTime) {
       this.setState(({
@@ -25,7 +25,7 @@ class App extends Component {
         switchTime: !this.state.switchTime
       }));
     }
-    if (this.state.timer < 0 && this.state.switchTime === true) {
+    if (this.state.timer < 0 && this.state.switchTime) {
       this.setState(({
         timer: this.state.sessionLength,
         switchTime: !this.state.switchTime
@@ -56,6 +56,7 @@ class App extends Component {
   render() {
     return (
       <div style={styles.container}>
+        <Label id={`timer-label`}>Session</Label>
         <Clock time={this.state.timer} />
         <div style={styles.inputContainer}>
           <div>
