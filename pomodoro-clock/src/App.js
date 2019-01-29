@@ -9,26 +9,26 @@ class App extends Component {
     super(props)
     this.state = {
       breakLength: 5,
-      sessionLength: 25,
+      sessionLength: 1500000,
       interval: '',
       switchTime: false,
-      timer: 25
+      timer: 1500000
     };
   }
   countDown = () => {
     this.setState(prevState => ({
-      timer: prevState.timer - 1
+      timer: prevState.timer - 1000
     }));
-    if (this.state.timer < 0 && !this.state.switchTime) {
+    if (this.state.timer === 0 && !this.state.switchTime) {
       this.setState(({
         timer: this.state.breakLength,
-        switchTime: !this.state.switchTime
+        switchTime:!this.state.switchTime
       }));
     }
-    if (this.state.timer < 0 && this.state.switchTime) {
+    if (this.state.timer === 0 && this.state.switchTime) {
       this.setState(({
         timer: this.state.sessionLength,
-        switchTime: !this.state.switchTime
+        switchTime:!this.state.switchTime
       }));
     }
   }
@@ -44,13 +44,13 @@ class App extends Component {
   handleSessionInput = input => {
     // timer also need to be set so that user can see the change
     this.setState(({
-      sessionLength: input.value,
-      timer: input.value
+      sessionLength: input.value * 60000,
+      timer: input.value * 60000
     }));
   }
   handleBreakInput = input => {
     this.setState(({
-      breakLength: input.value
+      breakLength: input.value * 60000
     }));
   }
   render() {
