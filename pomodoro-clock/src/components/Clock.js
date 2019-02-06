@@ -6,7 +6,7 @@ class Clock extends Component {
     }
     render() {
         return (
-            <div style={{ textAlign: 'center' }}>
+            <div style={{ textAlign: 'center' }} id="time-left">
                 {this.formatTime(this.props.time)}
             </div>
         );
