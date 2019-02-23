@@ -80,7 +80,7 @@ class App extends Component {
              func={(event) => this.handleBreakInput(event)}></Input>
           </div>
         </div>
-        <button onClick={() => this.start()}>Start</button>
+        <button id="start_stop" onClick={() => this.start()}>Start</button>
         <button onClick={() => this.pause()}>Pause</button>
       </div>
     );
