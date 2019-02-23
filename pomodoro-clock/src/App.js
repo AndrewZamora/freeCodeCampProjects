@@ -22,13 +22,13 @@ class App extends Component {
     if (this.state.timer === 0 && !this.state.switchTime) {
       this.setState(({
         timer: this.state.breakLength,
-        switchTime:!this.state.switchTime
+        switchTime: !this.state.switchTime
       }));
     }
     if (this.state.timer === 0 && this.state.switchTime) {
       this.setState(({
         timer: this.state.sessionLength,
-        switchTime:!this.state.switchTime
+        switchTime: !this.state.switchTime
       }));
     }
   }
@@ -40,6 +40,13 @@ class App extends Component {
   }
   pause = () => {
     clearInterval(this.state.interval);
+  }
+  reset = () => {
+    clearInterval(this.state.interval);
+    this.setState(({
+      interval: '',
+      timer: 1500000
+    }));
   }
   handleSessionInput = input => {
     // timer also need to be set so that user can see the change
@@ -62,26 +69,27 @@ class App extends Component {
           <div>
             <Label id={`session-label`}>Session:</Label>
             <Input decId={`session-decrement`}
-            incId={`session-increment`}
-            valId={`session-length`}
-            default={25}
-            max={59}
-            unit="min"
-            func={(event) => this.handleSessionInput(event)}></Input>
+              incId={`session-increment`}
+              valId={`session-length`}
+              default={25}
+              max={59}
+              unit="min"
+              func={(event) => this.handleSessionInput(event)}></Input>
           </div>
           <div>
             <Label id={`break-label`}>Break:</Label>
             <Input decId={`break-decrement`}
-             incId={`break-increment`}
-             valId={`break-length`}
-             default={5}
-             max={59}
-             unit="min"
-             func={(event) => this.handleBreakInput(event)}></Input>
+              incId={`break-increment`}
+              valId={`break-length`}
+              default={5}
+              max={59}
+              unit="min"
+              func={(event) => this.handleBreakInput(event)}></Input>
           </div>
         </div>
         <button id="start_stop" onClick={() => this.start()}>Start</button>
         <button onClick={() => this.pause()}>Pause</button>
+        <button id="reset" onClick={() => this.reset()}>Reset</button>
       </div>
     );
   }
