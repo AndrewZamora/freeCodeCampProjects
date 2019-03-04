@@ -12,7 +12,9 @@ class App extends Component {
       sessionLength: 1500000,
       interval: '',
       switchTime: false,
-      timer: 1500000
+      timer: 1500000,
+      initialized: false,
+      start: false
     };
   }
   countDown = () => {
@@ -33,10 +35,24 @@ class App extends Component {
     }
   }
   start = () => {
-    this.setState(({
-      interval: setInterval(this.countDown, 1000),
-      timer: this.state.sessionLength
-    }));
+    if (!this.state.initialized) {
+      this.setState(({
+        interval: setInterval(this.countDown, 1000),
+        timer: this.state.sessionLength,
+        initialized: true,
+        start: true
+      }));
+    } if (this.state.start) {
+      clearInterval(this.state.interval)
+      this.setState(({
+        start: false
+      }));
+    } if (!this.state.start && this.state.initialized) {
+      this.setState(({
+        interval: setInterval(this.countDown, 1000),
+        start: true
+      }));
+    }
   }
   pause = () => {
     clearInterval(this.state.interval);
