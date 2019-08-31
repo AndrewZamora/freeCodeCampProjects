@@ -8,12 +8,12 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      breakLength: 5,
-      sessionLength: 25,
+      breakLength: 300000,
+      sessionLength: 1500000,
       status: "Session",
       interval: '',
       switchTime: false,
-      timer: 3600000,
+      timer: 1500000,
       initialized: false,
       start: false
     };
@@ -62,7 +62,10 @@ class App extends Component {
     clearInterval(this.state.interval);
     this.setState(({
       interval: '',
-      timer: 1500000
+      timer: 1500000,
+      breakLength: 300000,
+      sessionLength: 1500000,
+      status: "Session"
     }));
   }
   handleSessionInput = input => {
@@ -77,26 +80,42 @@ class App extends Component {
       breakLength: input.value * 60000
     }));
   }
+  increment = length => {
+    if (this.state[length] < 3600000) {
+      this.setState(prevState => ({
+        [length]: prevState[length] + 60000
+      }));
+    }
+  }
+  decrement = length => {
+    if (this.state[length] > 60000) {
+      this.setState(prevState => ({
+        [length]: prevState[length] - 60000
+      }));
+    }
+  }
   render() {
     return (
       <div style={styles.container}>
         <h1>Pomodoro Clock</h1>
         <div>
-          <label htmlFor="" id="timer-label">{this.state.status}</label>
-          <div id="time-left">25:00</div>
+          <p>Status: <span id="timer-label">{this.state.status}</span></p>
+          <Clock time={this.state.timer} />
         </div>
         <div>
-          <h3  id="break-length">{this.state.breakLength}</h3>
+          <h3 id="break-length">{this.state.breakLength / 60000}</h3>
           <label htmlFor="" id="break-label">Break Length</label>
-          <button id="break-decrement">-</button>
-          <button id="break-increment">+</button>
+          <button id="break-decrement" onClick={() => this.decrement("breakLength")}>-</button>
+          <button id="break-increment" onClick={() => this.increment("breakLength")}>+</button>
         </div>
         <div>
-          <h3  id="session-length">{this.state.sessionLength}</h3>
+          <h3 id="session-length">{this.state.sessionLength / 60000}</h3>
           <label htmlFor="" id="session-label">Session Length</label>
-          <button id="session-decrement">-</button>
-          <button id="session-increment">+</button>
+          <button id="session-decrement" onClick={() => this.decrement("sessionLength")}>-</button>
+          <button id="session-increment" onClick={() => this.increment("sessionLength")}>+</button>
         </div>
+        <button id="start_stop" onClick={() => this.start() }> {this.state.start ? "Pause" : "Start"}</button>
+        <button id="reset" onClick={() => this.reset()}>Reset</button>
         {/* <Label id={`timer-label`}>Session</Label>
         <Clock time={this.state.timer} />
         <div style={styles.inputContainer}>
