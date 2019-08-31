@@ -4,7 +4,8 @@ import Clock from './components/Clock';
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.beep = React.createRef();
     this.state = {
       breakLength: 300000,
       sessionLength: 1500000,
@@ -21,15 +22,19 @@ class App extends Component {
       timer: prevState.timer - 1000
     }));
     if (this.state.timer === 0 && !this.state.switchTime) {
+      this.beep.current.play();
       this.setState(({
         timer: this.state.breakLength,
-        switchTime: !this.state.switchTime
+        switchTime: !this.state.switchTime,
+        status: "Break"
       }));
     }
     if (this.state.timer === 0 && this.state.switchTime) {
+      this.beep.current.play();
       this.setState(({
         timer: this.state.sessionLength,
-        switchTime: !this.state.switchTime
+        switchTime: !this.state.switchTime,
+        status: "Session"
       }));
     }
   }
@@ -60,7 +65,9 @@ class App extends Component {
       timer: 1500000,
       breakLength: 300000,
       sessionLength: 1500000,
-      status: "Session"
+      status: "Session",
+      initialized: false,
+      start: false
     }));
   }
   increment = length => {
@@ -97,8 +104,9 @@ class App extends Component {
           <button id="session-decrement" onClick={() => this.decrement("sessionLength")}>-</button>
           <button id="session-increment" onClick={() => this.increment("sessionLength")}>+</button>
         </div>
-        <button id="start_stop" onClick={() => this.start() }> {this.state.start ? "Pause" : "Start"}</button>
+        <button id="start_stop" onClick={() => this.start()}> {this.state.start ? "Pause" : "Start"}</button>
         <button id="reset" onClick={() => this.reset()}>Reset</button>
+        <audio ref={this.beep} id="beep" src="https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3"/>
       </div>
     );
   }
