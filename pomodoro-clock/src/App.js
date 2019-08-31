@@ -9,10 +9,11 @@ class App extends Component {
     super(props)
     this.state = {
       breakLength: 5,
-      sessionLength: 1500000,
+      sessionLength: 25,
+      status: "Session",
       interval: '',
       switchTime: false,
-      timer: 1500000,
+      timer: 3600000,
       initialized: false,
       start: false
     };
@@ -79,7 +80,24 @@ class App extends Component {
   render() {
     return (
       <div style={styles.container}>
-        <Label id={`timer-label`}>Session</Label>
+        <h1>Pomodoro Clock</h1>
+        <div>
+          <label htmlFor="" id="timer-label">{this.state.status}</label>
+          <div id="time-left">25:00</div>
+        </div>
+        <div>
+          <h3  id="break-length">{this.state.breakLength}</h3>
+          <label htmlFor="" id="break-label">Break Length</label>
+          <button id="break-decrement">-</button>
+          <button id="break-increment">+</button>
+        </div>
+        <div>
+          <h3  id="session-length">{this.state.sessionLength}</h3>
+          <label htmlFor="" id="session-label">Session Length</label>
+          <button id="session-decrement">-</button>
+          <button id="session-increment">+</button>
+        </div>
+        {/* <Label id={`timer-label`}>Session</Label>
         <Clock time={this.state.timer} />
         <div style={styles.inputContainer}>
           <div>
@@ -105,7 +123,7 @@ class App extends Component {
         </div>
         <button id="start_stop" onClick={() => this.start()}>Start</button>
         <button onClick={() => this.pause()}>Pause</button>
-        <button id="reset" onClick={() => this.reset()}>Reset</button>
+        <button id="reset" onClick={() => this.reset()}>Reset</button> */}
       </div>
     );
   }
