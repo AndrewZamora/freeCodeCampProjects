@@ -73,14 +73,16 @@ class App extends Component {
   increment = length => {
     if (this.state[length] < 3600000) {
       this.setState(prevState => ({
-        [length]: prevState[length] + 60000
+        [length]: prevState[length] + 60000,
+        timer: length === "sessionLength" ?  prevState[length] + 60000 : prevState.timer
       }));
     }
   }
   decrement = length => {
     if (this.state[length] > 60000) {
       this.setState(prevState => ({
-        [length]: prevState[length] - 60000
+        [length]: prevState[length] - 60000,
+        timer: length === "sessionLength" ?  prevState[length] - 60000 : prevState.timer
       }));
     }
   }
