@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import beep from'./beep.mp3';
 
 class App extends Component {
   constructor(props) {
@@ -50,6 +51,8 @@ class App extends Component {
   }
   reset = () => {
     clearInterval(this.state.interval);
+    this.beep.current.pause();
+    this.beep.current.currentTime = 0;
     this.setState(({
       interval: '',
       timer: 1500000,
@@ -77,7 +80,7 @@ class App extends Component {
     }
   }
   formatTime = milSec => {
-    return new Date(milSec).toISOString().substr(14, 5);
+    return milSec === 3600000 ? "60:00" : new Date(milSec).toISOString().substr(14, 5);
   }
   render() {
     return (
@@ -103,7 +106,7 @@ class App extends Component {
         </div>
         <button id="start_stop" onClick={() => this.start()}> {this.state.start ? "Pause" : "Start"}</button>
         <button id="reset" onClick={() => this.reset()}>Reset</button>
-        <audio ref={this.beep} id="beep" src="https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3" />
+        <audio ref={this.beep} id="beep" src={beep} type="audio/mpeg"/>
       </div>
     );
   }
