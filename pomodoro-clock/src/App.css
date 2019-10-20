@@ -1,0 +1,9 @@
+nav div h3 {
+  margin: 0;
+}
+nav div {
+  padding: 1em 0;
+}
+#time-left {
+  font-size: 4.5em;
+}

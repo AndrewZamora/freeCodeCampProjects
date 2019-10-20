@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import beep from'./beep.mp3';
+import beep from './beep.mp3';
+import './vendors/materialize/css/materialize.min.css';
 
 class App extends Component {
   constructor(props) {
@@ -84,30 +85,36 @@ class App extends Component {
   }
   render() {
     return (
-      <div style={styles.container}>
-        <h1>Pomodoro Clock</h1>
-        <div>
-          <p>Status: <span id="timer-label">{this.state.status}</span></p>
-          <div style={{ textAlign: 'center' }} id="time-left">
-            {`${this.formatTime(this.state.timer)}`}
+      <main style={styles.container}>
+        <nav>
+          <div className="nav-wrapper pink accent-3">
+            <h3 className="center">Pomodoro Clock</h3>
           </div>
+        </nav>
+        <div style={styles.timer}>
+          <div>
+            <div style={{ textAlign: 'center' }} id="time-left">
+              {`${this.formatTime(this.state.timer)}`}
+            </div>
+            <p>Status: <span id="timer-label">{this.state.status}</span></p>
+          </div>
+          <div>
+            <h3 id="break-length">{this.state.breakLength / 60000}</h3>
+            <label id="break-label">Break Length</label>
+            <button className="waves-effect waves-light btn" id="break-decrement" onClick={() => this.decrement("breakLength")}>-</button>
+            <button  className="waves-effect waves-light btn" id="break-increment" onClick={() => this.increment("breakLength")}>+</button>
+          </div>
+          <div>
+            <h3 id="session-length">{this.state.sessionLength / 60000}</h3>
+            <label id="session-label">Session Length</label>
+            <button className="waves-effect waves-light btn" id="session-decrement" onClick={() => this.decrement("sessionLength")}>-</button>
+            <button className="waves-effect waves-light btn" id="session-increment" onClick={() => this.increment("sessionLength")}>+</button>
+          </div>
+          <button className="waves-effect waves-light btn" id="start_stop" onClick={() => this.start()}> {this.state.start ? "Pause" : "Start"}</button>
+          <button className="waves-effect waves-light btn" id="reset" onClick={() => this.reset()}>Reset</button>
+          <audio ref={this.beep} id="beep" src={beep} type="audio/mpeg" />
         </div>
-        <div>
-          <h3 id="break-length">{this.state.breakLength / 60000}</h3>
-          <label id="break-label">Break Length</label>
-          <button id="break-decrement" onClick={() => this.decrement("breakLength")}>-</button>
-          <button id="break-increment" onClick={() => this.increment("breakLength")}>+</button>
-        </div>
-        <div>
-          <h3 id="session-length">{this.state.sessionLength / 60000}</h3>
-          <label id="session-label">Session Length</label>
-          <button id="session-decrement" onClick={() => this.decrement("sessionLength")}>-</button>
-          <button id="session-increment" onClick={() => this.increment("sessionLength")}>+</button>
-        </div>
-        <button id="start_stop" onClick={() => this.start()}> {this.state.start ? "Pause" : "Start"}</button>
-        <button id="reset" onClick={() => this.reset()}>Reset</button>
-        <audio ref={this.beep} id="beep" src={beep} type="audio/mpeg"/>
-      </div>
+      </main>
     );
   }
 }
@@ -116,10 +123,17 @@ export default App;
 
 const styles = {
   container: {
-    display: 'flex',
-    flexDirection: 'column'
+    height: '100vh',
+    width: '100vw',
+    margin: "0",
   },
   inputContainer: {
     display: 'flex'
+  },
+  timer: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    textAlign: "center"
   }
 }
